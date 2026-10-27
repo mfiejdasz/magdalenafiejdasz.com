@@ -30,13 +30,45 @@ export const en: Dictionary = {
   },
   about: {
     eyebrow: "About me",
-    imageAlt: "Psychotherapist in the office",
-    titleLines: ["A safe space", "for your growth"],
+    imageAlt: "Magdalena Fiejdasz, psychotherapist",
+    title: "Magdalena Fiejdasz",
+    role: "Psychotherapist · psychologist · educator · hippotherapist · canine-assisted therapist",
     paragraphs: [
-      "I am a certified psychotherapist with many years of experience working with adults and families. I believe every person carries the resources for change within — sometimes they only need a safe space to discover them.",
-      "My work is guided by full acceptance. The office is a place where you can be yourself — without judgment, without rush. Together we look for an understanding of your experiences and build a path toward feeling better.",
-      "I work in an integrative approach, combining the psychodynamic approach with elements of systemic and cognitive-behavioral therapy.",
+      "For over 20 years I have been supporting people who find themselves at a critical point in life. I work in an integrative approach based on humanistic-experiential psychotherapy.",
+      "Out of my love for nature, I invite animals – horses and dogs – and nature itself – forests, mountains, the ocean – into my work. I believe nature supports the healing process, which is why, besides therapy sessions, I organise personal development retreats in beautiful natural places.",
     ],
+    facts: [
+      { value: "20+", label: "years of experience" },
+      { value: "Online", label: "work with people 18+" },
+      { value: "Supervision", label: "ongoing supervision" },
+    ],
+    education: {
+      title: "Education",
+      items: [
+        "4-year INTRA School of Psychotherapy",
+        "Psychology at SWPS University in Warsaw",
+        "Social rehabilitation pedagogy at the Maria Grzegorzewska University in Warsaw",
+        "Movement recreation instructor course with a specialisation in hippotherapy (member of the Polish Hippotherapy Society)",
+        "Canine-assisted therapy course",
+      ],
+    },
+    experience: {
+      title: "Experience",
+      items: [
+        "Individual psychotherapy for adults",
+        "Support groups for women who have experienced domestic violence at the Mederi Foundation",
+        "Work with teenagers in foster care (WCPR) – individual and group support, therapeutic camps",
+        "Work with youth with behavioural disorders (MOS, MOW, SOW) – sociotherapy, hippotherapy, canine-assisted therapy, art therapy and wilderness therapy",
+        "Workshops and trainings, including for SWPS University in Warsaw and the Polish Hippotherapy Society",
+      ],
+      moreLabel: "See more",
+      moreItems: [
+        "Talks at international conferences, including the 14th Congress of Therapeutic Horse Riding in Athens – lecture “The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”",
+        "Organising and running violence prevention projects",
+        "Organising trips for young people and week-long development workshops for adults",
+        "Articles on psychological topics in the press",
+      ],
+    },
   },
   services: {
     eyebrow: "Services",

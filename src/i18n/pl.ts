@@ -28,13 +28,45 @@ export const pl = {
   },
   about: {
     eyebrow: "O mnie",
-    imageAlt: "Psychoterapeuta w gabinecie",
-    titleLines: ["Bezpieczna przestrzeń", "dla Twojego rozwoju"],
+    imageAlt: "Magdalena Fiejdasz, psychoterapeutka",
+    title: "Magdalena Fiejdasz",
+    role: "Psychoterapeutka · psycholożka · pedagożka · hipoterapeutka · dogoterapeutka",
     paragraphs: [
-      "Jestem certyfikowaną psychoterapeutką z wieloletnim doświadczeniem w pracy z dorosłymi i rodzinami. Wierzę, że każdy człowiek nosi w sobie zasoby do zmiany — czasem potrzebuje jedynie bezpiecznej przestrzeni, aby je odkryć.",
-      "W mojej pracy kieruję się zasadą pełnej akceptacji. Gabinet to miejsce, w którym możesz być sobą — bez oceniania, bez pośpiechu. Wspólnie szukamy zrozumienia dla Twoich doświadczeń i budujemy drogę do lepszego samopoczucia.",
-      "Pracuję w nurcie integracyjnym, łącząc podejście psychodynamiczne z elementami terapii systemowej i poznawczo-behawioralnej.",
+      "Od ponad 20 lat wspieram osoby, które znalazły się w kryzysowym momencie życia. Pracuję w nurcie integracyjnym, opartym na psychoterapii humanistyczno-doświadczeniowej.",
+      "Z uwagi na uwielbienie przyrody, do swojej pracy zapraszam zwierzęta – konie i psy – oraz naturę: las, góry, ocean. Uważam, że natura sprzyja procesowi zdrowienia, dlatego oprócz sesji terapeutycznych organizuję wyjazdy rozwojowe do przyrodniczo pięknych miejsc.",
     ],
+    facts: [
+      { value: "20+", label: "lat doświadczenia" },
+      { value: "Online", label: "praca z osobami 18+" },
+      { value: "Superwizja", label: "stała superwizja" },
+    ],
+    education: {
+      title: "Wykształcenie",
+      items: [
+        "4-letnia Szkoła Psychoterapii INTRA",
+        "Psychologia na Uniwersytecie SWPS w Warszawie",
+        "Pedagogika resocjalizacyjna na Akademii Pedagogiki Specjalnej w Warszawie",
+        "Kurs instruktora rekreacji ruchowej ze specjalnością hipoterapia (członkini Polskiego Towarzystwa Hipoterapeutycznego)",
+        "Kurs dogoterapii",
+      ],
+    },
+    experience: {
+      title: "Doświadczenie",
+      items: [
+        "Prowadzenie psychoterapii indywidualnej dla osób dorosłych",
+        "Prowadzenie grup wsparcia dla kobiet po doświadczeniu przemocy w rodzinie w Fundacji Mederi",
+        "Praca z nastolatkami z pieczy zastępczej (WCPR) – wsparcie indywidualne i grupowe, obozy terapeutyczne",
+        "Praca z młodzieżą z zaburzeniami zachowania (MOS, MOW, SOW) – socjoterapia, hipoterapia, dogoterapia, arteterapia i wildernesstherapy",
+        "Prowadzenie warsztatów i szkoleń, m.in. dla Uniwersytetu SWPS w Warszawie oraz Polskiego Towarzystwa Hipoterapeutycznego",
+      ],
+      moreLabel: "Zobacz więcej",
+      moreItems: [
+        "Wystąpienia na międzynarodowych konferencjach, m.in. XIV Congress of Therapeutic Horse Riding w Atenach – wykład „The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”",
+        "Organizacja i prowadzenie projektów z zakresu profilaktyki przemocy",
+        "Organizacja wyjazdów dla młodzieży oraz tygodniowych warsztatów rozwojowych dla osób dorosłych",
+        "Publikacje w prasie o tematyce psychologicznej",
+      ],
+    },
   },
   services: {
     eyebrow: "Oferta",
