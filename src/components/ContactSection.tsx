@@ -16,18 +16,7 @@ const ContactSection = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Map placeholder */}
-          <div className="rounded-3xl overflow-hidden bg-muted h-80 lg:h-auto min-h-[320px] flex items-center justify-center">
-            <iframe
-              title="Lokalizacja gabinetu"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.397!2d16.9252!3d52.4064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDI0JzIzLjAiTiAxNsKwNTUnMzAuNyJF!5e0!3m2!1spl!2spl!4v1"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-
+        <div className="max-w-xl mx-auto">
           {/* Contact info */}
           <div className="flex flex-col justify-center">
             <div className="space-y-8">
