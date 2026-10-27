@@ -27,7 +27,6 @@ const formatter = new Intl.DateTimeFormat(locale, {
 });
 
 const toDate = (value: string) => new Date(`${value}T00:00:00Z`);
-const endOf = (event: EventItem) => event.endDate ?? event.startDate;
 
 const formatDates = (event: EventItem): string | undefined => {
   if (!event.startDate) return undefined;
@@ -36,21 +35,26 @@ const formatDates = (event: EventItem): string | undefined => {
   return formatter.formatRange(start, toDate(event.endDate));
 };
 
-const now = new Date();
+const today = new Date().toISOString().slice(0, 10);
 const isUpcoming = (event: EventItem) => {
-  const end = endOf(event);
-  return end ? toDate(end).getTime() + 24 * 60 * 60 * 1000 > now.getTime() : false;
+  const end = event.endDate ?? event.startDate;
+  return end ? end >= today : false;
 };
 
-const sortKey = (event: EventItem) => (event.startDate ? toDate(event.startDate).getTime() : 0);
+const startOf = (event: EventItem) => event.startDate ?? "";
 
-const upcoming = events.filter(isUpcoming).sort((a, b) => sortKey(a) - sortKey(b));
-const past = events.filter((event) => !isUpcoming(event)).sort((a, b) => sortKey(b) - sortKey(a));
+const upcoming = events.filter(isUpcoming).sort((a, b) => startOf(a).localeCompare(startOf(b)));
+const past = events
+  .filter((event) => !isUpcoming(event))
+  .sort((a, b) => {
+    if (!startOf(a) || !startOf(b)) return startOf(b) ? 1 : startOf(a) ? -1 : 0;
+    return startOf(b).localeCompare(startOf(a));
+  });
 
 const groups = [
-  { title: t.upcomingTitle, items: upcoming, modifier: "upcoming" },
-  { title: t.pastTitle, items: past, modifier: "past" },
-].filter((group) => group.items.length > 0);
+  { key: "upcoming", title: t.upcomingTitle, items: upcoming },
+  { key: "past", title: t.pastTitle, items: past },
+];
 ---
 
 <section id="news" class="news">
@@ -60,13 +64,19 @@ const groups = [
     <div class="news__groups">
       {
         groups.map((group) => (
-          <div class="news__group">
+          <div class="news__group" data-event-group={group.key} hidden={group.items.length === 0}>
             <h3 class="news__group-title">{group.title}</h3>
-            <ul class="news__list">
+            <ul class="news__list" data-event-list={group.key}>
               {group.items.map((event) => {
                 const dates = formatDates(event);
                 return (
-                  <li class:list={["news__card", `news__card--${group.modifier}`]}>
+                  <li
+                    class="news__card"
+                    data-event-card
+                    data-status={group.key}
+                    data-start={event.startDate ?? ""}
+                    data-end={event.endDate ?? event.startDate ?? ""}
+                  >
                     <div class="news__icon">
                       <Icon name={icons[event.type]} size={24} />
                     </div>
@@ -101,6 +111,10 @@ const groups = [
     </div>
   </div>
 </section>
+
+<script>
+  import "../scripts/events";
+</script>
 
 <style lang="scss">
   @use "../styles" as *;
@@ -149,7 +163,7 @@ const groups = [
     }
   }
 
-  .news__card--upcoming {
+  .news__card[data-status="upcoming"] {
     border: 1px solid with-alpha($primary, 0.35);
   }
 
