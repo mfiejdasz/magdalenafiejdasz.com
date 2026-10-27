@@ -71,18 +71,36 @@ export const pl = {
   services: {
     eyebrow: "Oferta",
     title: "Jak mogę Ci pomóc?",
+    intro: "Zapraszam osoby, które:",
     items: [
       {
-        title: "Terapia dla dorosłych",
-        description:
-          "Indywidualne spotkania pomagające zrozumieć siebie, radzić sobie z lękiem, depresją, stresem i trudnościami w relacjach. Pracujemy w Twoim tempie.",
-        points: ["Lęk i ataki paniki", "Depresja i obniżony nastrój", "Kryzysy życiowe", "Trudności w relacjach"],
+        title: "Kryzys i trudne emocje",
+        points: [
+          "są w kryzysowym momencie życia",
+          "doświadczają stanów depresyjnych",
+          "doświadczają lęku",
+          "doświadczają obniżonego poczucia własnej wartości",
+        ],
       },
       {
-        title: "Terapia dla rodzin",
-        description:
-          "Wspólne sesje dla rodzin, które chcą poprawić komunikację, rozwiązać konflikty i odbudować bliskość. Bezpieczna przestrzeń dla każdego członka rodziny.",
-        points: ["Konflikty rodzinne", "Problemy z komunikacją", "Wsparcie w kryzysie", "Budowanie więzi"],
+        title: "Relacje",
+        points: ["doświadczają trudności w relacjach", "doświadczają trudności w relacji ze sobą"],
+      },
+      {
+        title: "Zmiany i nowe etapy",
+        points: [
+          "doświadczają trudności adaptacyjnych",
+          "mają poczucie wypalenia zawodowego i zagubienia",
+          "są młodymi dorosłymi na progu samodzielności",
+          "mieszkają za granicą i doświadczają związanych z tym trudności",
+        ],
+      },
+      {
+        title: "Rozwój",
+        points: [
+          "chcą lepiej zrozumieć siebie i swoje wybory",
+          "potrzebują wzmocnienia swoich zasobów i uwierzenia w możliwość satysfakcjonującego życia",
+        ],
       },
     ],
   },

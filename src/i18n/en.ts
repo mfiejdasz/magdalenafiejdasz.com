@@ -73,18 +73,36 @@ export const en: Dictionary = {
   services: {
     eyebrow: "Services",
     title: "How can I help you?",
+    intro: "I invite people who:",
     items: [
       {
-        title: "Therapy for adults",
-        description:
-          "Individual sessions that help you understand yourself and cope with anxiety, depression, stress and difficulties in relationships. We work at your pace.",
-        points: ["Anxiety and panic attacks", "Depression and low mood", "Life crises", "Relationship difficulties"],
+        title: "Crisis and difficult emotions",
+        points: [
+          "are going through a crisis in life",
+          "experience depressive states",
+          "experience anxiety",
+          "experience low self-esteem",
+        ],
       },
       {
-        title: "Family therapy",
-        description:
-          "Joint sessions for families who want to improve communication, resolve conflicts and rebuild closeness. A safe space for every family member.",
-        points: ["Family conflicts", "Communication problems", "Support in a crisis", "Building bonds"],
+        title: "Relationships",
+        points: ["experience difficulties in relationships", "experience difficulties in their relationship with themselves"],
+      },
+      {
+        title: "Change and new stages",
+        points: [
+          "experience difficulties adapting",
+          "feel professional burnout and lost",
+          "are young adults on the threshold of independence",
+          "live abroad and face the difficulties that come with it",
+        ],
+      },
+      {
+        title: "Growth",
+        points: [
+          "want to better understand themselves and their choices",
+          "need to strengthen their resources and believe that a fulfilling life is possible",
+        ],
       },
     ],
   },
