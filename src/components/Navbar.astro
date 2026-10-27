@@ -1,9 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import MenuToggle from "./MenuToggle.astro";
+import MobileMenu from "./MobileMenu.astro";
 import logo from "../assets/logo.png";
 import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
 import { siteConfig } from "../config";
+import type { NavLink } from "../types";
+
 interface Props {
   lang: Lang;
   onHome?: boolean;
@@ -15,7 +18,8 @@ const t = getDictionary(lang);
 const otherLang = getOtherLang(lang);
 const anchorBase = onHome ? "" : getHomePath(lang);
 const langHref = switchHref ?? getHomePath(otherLang);
-const links = [
+const menuId = "mobile-menu";
+const links: NavLink[] = [
   { label: t.nav.about, href: `${anchorBase}#about` },
   { label: t.nav.services, href: `${anchorBase}#services` },
   { label: t.nav.articles, href: `${anchorBase}#articles` },
@@ -49,76 +53,14 @@ const links = [
       </a>
     </div>
 
-    <button
-      class="navbar__toggle"
-      type="button"
-      aria-label={t.nav.menu}
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      data-menu-toggle
-    >
-      <span class="navbar__icon navbar__icon--open"><Icon name="lucide:menu" size={24} /></span>
-      <span class="navbar__icon navbar__icon--close"><Icon name="lucide:x" size={24} /></span>
-    </button>
+    <MenuToggle label={t.nav.menu} controls={menuId} />
   </div>
 
-  <div class="navbar__mobile" id="mobile-menu" data-mobile-menu inert>
-    <div class="navbar__mobile-inner">
-      <div class="navbar__mobile-links">
-        {
-          links.map((link, index) => (
-            <a href={link.href} class="navbar__mobile-link" style={`--i: ${index}`}>
-              {link.label}
-            </a>
-          ))
-        }
-        <a
-          href={langHref}
-          class="navbar__mobile-lang"
-          style={`--i: ${links.length}`}
-          hreflang={otherLang}
-          lang={otherLang}
-          aria-label={t.languageSwitch.label}
-        >
-          {t.languageSwitch.text}
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="navbar__backdrop" data-menu-backdrop></div>
+  <MobileMenu id={menuId} lang={lang} links={links} langHref={langHref} />
 </nav>
 
 <script>
-  const nav = document.querySelector<HTMLElement>("[data-navbar]");
-  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
-  const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
-  const backdrop = document.querySelector<HTMLElement>("[data-menu-backdrop]");
-
-  if (nav && toggle && menu && backdrop) {
-    const isOpen = () => nav.dataset.open === "true";
-
-    const setOpen = (open: boolean) => {
-      nav.dataset.open = String(open);
-      toggle.setAttribute("aria-expanded", String(open));
-      menu.inert = !open;
-    };
-
-    toggle.addEventListener("click", () => setOpen(!isOpen()));
-    backdrop.addEventListener("click", () => setOpen(false));
-    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && isOpen()) {
-        setOpen(false);
-        toggle.focus();
-      }
-    });
-
-    window.matchMedia("(min-width: 768px)").addEventListener("change", (event) => {
-      if (event.matches) setOpen(false);
-    });
-  }
+  import "../scripts/mobile-menu";
 </script>
 
 <style lang="scss">
@@ -220,185 +162,6 @@ const links = [
     &:hover {
       background: $accent;
       color: $accent-foreground;
-    }
-  }
-
-  .navbar__toggle {
-    display: grid;
-    place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-right: -0.625rem;
-    border-radius: $radius-sm;
-    transition: background 0.2s;
-
-    &:hover {
-      background: with-alpha($accent, 0.6);
-    }
-
-    &:focus-visible {
-      outline: 2px solid $primary;
-      outline-offset: 2px;
-    }
-
-    @include up(md) {
-      display: none;
-    }
-  }
-
-  .navbar__icon {
-    grid-area: 1 / 1;
-    display: inline-flex;
-    transition:
-      opacity 0.25s,
-      transform 0.35s ease;
-  }
-
-  .navbar__icon--close {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.6);
-  }
-
-  .navbar[data-open="true"] {
-    .navbar__icon--open {
-      opacity: 0;
-      transform: rotate(90deg) scale(0.6);
-    }
-
-    .navbar__icon--close {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  .navbar__mobile {
-    display: grid;
-    grid-template-rows: 0fr;
-    visibility: hidden;
-    transition:
-      grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-      visibility 0s 0.4s;
-
-    @include up(md) {
-      display: none;
-    }
-  }
-
-  .navbar[data-open="true"] .navbar__mobile {
-    grid-template-rows: 1fr;
-    visibility: visible;
-    transition:
-      grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-      visibility 0s 0s;
-  }
-
-  .navbar__mobile-inner {
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .navbar__mobile-links {
-    display: flex;
-    flex-direction: column;
-    max-height: calc(100dvh - #{$navbar-height});
-    padding: 0.5rem 1.5rem 2rem;
-    overflow-y: auto;
-  }
-
-  .navbar__mobile-link,
-  .navbar__mobile-lang {
-    opacity: 0;
-    transform: translateY(-0.5rem);
-    transition:
-      opacity 0.2s,
-      transform 0.2s,
-      color 0.2s;
-  }
-
-  .navbar[data-open="true"] {
-    .navbar__mobile-link,
-    .navbar__mobile-lang {
-      opacity: 1;
-      transform: none;
-      transition:
-        opacity 0.35s calc(0.08s + var(--i) * 0.05s),
-        transform 0.35s calc(0.08s + var(--i) * 0.05s),
-        color 0.2s;
-    }
-  }
-
-  .navbar__mobile-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 3.5rem;
-    font-family: $font-heading;
-    font-size: 1.375rem;
-    font-weight: 500;
-    color: $foreground;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, with-alpha($primary, 0.3), transparent);
-    }
-
-    &:hover,
-    &:focus-visible {
-      color: $primary;
-    }
-  }
-
-  .navbar__mobile-lang {
-    align-self: center;
-    margin-top: 1.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid $border;
-    border-radius: $radius-sm;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: $muted-foreground;
-
-    &:hover {
-      background: $accent;
-      color: $accent-foreground;
-    }
-  }
-
-  .navbar__backdrop {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 100dvh;
-    background: with-alpha($foreground, 0.25);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-
-    @include up(md) {
-      display: none;
-    }
-  }
-
-  .navbar[data-open="true"] .navbar__backdrop {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .navbar__mobile,
-    .navbar__mobile-link,
-    .navbar__mobile-lang,
-    .navbar__icon,
-    .navbar__backdrop {
-      transition-duration: 0s !important;
-      transition-delay: 0s !important;
     }
   }
 </style>

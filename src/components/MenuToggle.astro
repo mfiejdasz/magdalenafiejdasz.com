@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  label: string;
+  controls: string;
+}
+
+const { label, controls } = Astro.props;
+---
+
+<button class="menu-toggle" type="button" aria-label={label} aria-expanded="false" aria-controls={controls} data-menu-toggle>
+  <span class="menu-toggle__icon menu-toggle__icon--open"><Icon name="lucide:menu" size={24} /></span>
+  <span class="menu-toggle__icon menu-toggle__icon--close"><Icon name="lucide:x" size={24} /></span>
+</button>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.625rem;
+    border-radius: $radius-sm;
+    transition: background 0.2s;
+
+    &:hover {
+      background: with-alpha($accent, 0.6);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  .menu-toggle__icon {
+    grid-area: 1 / 1;
+    display: inline-flex;
+    transition:
+      opacity 0.25s,
+      transform 0.35s ease;
+  }
+
+  .menu-toggle__icon--close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+  }
+
+  .menu-toggle[aria-expanded="true"] {
+    .menu-toggle__icon--open {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.6);
+    }
+
+    .menu-toggle__icon--close {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-toggle__icon {
+      transition-duration: 0s;
+    }
+  }
+</style>

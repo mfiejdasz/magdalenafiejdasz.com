@@ -1,0 +1,177 @@
+---
+import { getDictionary, getOtherLang, type Lang } from "../i18n";
+import type { NavLink } from "../types";
+
+interface Props {
+  id: string;
+  lang: Lang;
+  links: NavLink[];
+  langHref: string;
+}
+
+const { id, lang, links, langHref } = Astro.props;
+const t = getDictionary(lang).languageSwitch;
+const otherLang = getOtherLang(lang);
+---
+
+<div class="mobile-menu" id={id} data-mobile-menu inert>
+  <div class="mobile-menu__inner">
+    <div class="mobile-menu__links">
+      {
+        links.map((link, index) => (
+          <a href={link.href} class="mobile-menu__link" style={`--i: ${index}`}>
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={langHref}
+        class="mobile-menu__lang"
+        style={`--i: ${links.length}`}
+        hreflang={otherLang}
+        lang={otherLang}
+        aria-label={t.label}
+      >
+        {t.text}
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-menu__backdrop" data-menu-backdrop></div>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  $ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  .mobile-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.4s $ease,
+      visibility 0s 0.4s;
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  .mobile-menu__inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .mobile-menu__links {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - #{$navbar-height});
+    padding: 0.5rem 1.5rem 2rem;
+    overflow-y: auto;
+  }
+
+  .mobile-menu__link,
+  .mobile-menu__lang {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity 0.2s,
+      transform 0.2s,
+      color 0.2s;
+  }
+
+  .mobile-menu__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.5rem;
+    font-family: $font-heading;
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: $foreground;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, with-alpha($primary, 0.3), transparent);
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $primary;
+    }
+  }
+
+  .mobile-menu__lang {
+    align-self: center;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $muted-foreground;
+
+    &:hover {
+      background: $accent;
+      color: $accent-foreground;
+    }
+  }
+
+  .mobile-menu__backdrop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100dvh;
+    background: with-alpha($foreground, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  :global(.navbar[data-open="true"]) {
+    .mobile-menu {
+      grid-template-rows: 1fr;
+      visibility: visible;
+      transition:
+        grid-template-rows 0.4s $ease,
+        visibility 0s 0s;
+    }
+
+    .mobile-menu__link,
+    .mobile-menu__lang {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity 0.35s calc(0.08s + var(--i) * 0.05s),
+        transform 0.35s calc(0.08s + var(--i) * 0.05s),
+        color 0.2s;
+    }
+
+    .mobile-menu__backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .mobile-menu__link,
+    .mobile-menu__lang,
+    .mobile-menu__backdrop {
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+</style>
