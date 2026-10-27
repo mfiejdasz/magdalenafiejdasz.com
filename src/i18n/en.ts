@@ -11,8 +11,8 @@ export const en: Dictionary = {
     menu: "Menu",
     about: "About me",
     services: "Services",
-    firstVisit: "First visit",
-    pricing: "Pricing",
+    articles: "Articles",
+    news: "News",
     contact: "Contact",
     book: "Book a visit",
   },
@@ -106,40 +106,29 @@ export const en: Dictionary = {
       },
     ],
   },
-  firstVisit: {
-    eyebrow: "First visit",
-    title: "What to expect?",
-    intro: "I know the first step is often the hardest. Here is what the path to the first meeting looks like.",
-    steps: [
-      {
-        title: "Contact",
-        description: "Call or write to me. I will answer your first questions.",
-      },
-      {
-        title: "First conversation",
-        description: "The meeting lasts about 50 minutes. We get to know each other and talk about your needs and expectations.",
-      },
-      {
-        title: "Safe space",
-        description: "You do not need to prepare. Just come as you are.",
-      },
-      {
-        title: "Therapy plan",
-        description: "Together we set the goals and the frequency of sessions. You decide on your own pace.",
-      },
-    ],
+  articles: {
+    eyebrow: "Articles",
+    title: "Selected publications",
+    intro: "Texts I have written about psychology, working with young people and the role of nature in recovery. The articles are in Polish.",
+    pressTitle: "Press and online media",
+    scientificTitle: "Scientific publications",
+    scientificLink: "All publications at PTHIP",
+    openLabel: "Opens in a new tab",
   },
-  pricing: {
-    eyebrow: "Pricing",
-    title: "Transparent rules",
-    items: [
-      { name: "Initial consultation", duration: "50 min", price: "200 PLN" },
-      { name: "Individual session", duration: "50 min", price: "200 PLN" },
-      { name: "Family session", duration: "80 min", price: "300 PLN" },
-    ],
-    officeTitle: "In-person office",
-    officeText: "Sessions take place on site in a cosy office.",
-    cta: "Book a visit",
+  news: {
+    eyebrow: "News",
+    title: "Training and events",
+    intro: "Workshops, retreats and conferences I take part in or lead.",
+    upcomingTitle: "Upcoming",
+    pastTitle: "Past",
+    types: {
+      retreat: "Retreat",
+      conference: "Conference",
+      workshop: "Workshop",
+      training: "Training",
+    },
+    moreInfo: "More information",
+    openLabel: "Opens in a new tab",
   },
   contact: {
     eyebrow: "Contact",

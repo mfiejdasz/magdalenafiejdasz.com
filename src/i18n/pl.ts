@@ -9,8 +9,8 @@ export const pl = {
     menu: "Menu",
     about: "O mnie",
     services: "Oferta",
-    firstVisit: "Pierwsza wizyta",
-    pricing: "Cennik",
+    articles: "Artykuły",
+    news: "Aktualności",
     contact: "Kontakt",
     book: "Umów wizytę",
   },
@@ -104,40 +104,29 @@ export const pl = {
       },
     ],
   },
-  firstVisit: {
-    eyebrow: "Pierwsza wizyta",
-    title: "Czego się spodziewać?",
-    intro: "Wiem, że pierwszy krok bywa najtrudniejszy. Oto jak wygląda droga do pierwszego spotkania.",
-    steps: [
-      {
-        title: "Kontakt",
-        description: "Zadzwoń lub napisz do mnie. Odpowiem na Twoje pierwsze pytania.",
-      },
-      {
-        title: "Pierwsza rozmowa",
-        description: "Spotkanie trwa ok. 50 minut. Poznajemy się, rozmawiamy o Twoich potrzebach i oczekiwaniach.",
-      },
-      {
-        title: "Bezpieczna przestrzeń",
-        description: "Nie musisz się przygotowywać. Wystarczy, że przyjdziesz taką/takim, jaką/jakim jesteś.",
-      },
-      {
-        title: "Plan terapii",
-        description: "Wspólnie ustalamy cele i częstotliwość spotkań. Ty decydujesz o swoim tempie.",
-      },
-    ],
+  articles: {
+    eyebrow: "Artykuły",
+    title: "Wybrane publikacje",
+    intro: "Teksty, które napisałam o psychologii, pracy z młodzieżą i roli natury w procesie zdrowienia.",
+    pressTitle: "W prasie i portalach",
+    scientificTitle: "Publikacje naukowe",
+    scientificLink: "Wszystkie publikacje w PTHIP",
+    openLabel: "Otwiera się w nowej karcie",
   },
-  pricing: {
-    eyebrow: "Cennik",
-    title: "Przejrzyste zasady",
-    items: [
-      { name: "Konsultacja wstępna", duration: "50 min", price: "200 zł" },
-      { name: "Sesja indywidualna", duration: "50 min", price: "200 zł" },
-      { name: "Sesja rodzinna", duration: "80 min", price: "300 zł" },
-    ],
-    officeTitle: "Gabinet stacjonarny",
-    officeText: "Spotkania odbywają się na miejscu w kameralnym gabinecie.",
-    cta: "Umów wizytę",
+  news: {
+    eyebrow: "Aktualności",
+    title: "Szkolenia i wydarzenia",
+    intro: "Warsztaty, wyjazdy i konferencje, w których uczestniczę lub które prowadzę.",
+    upcomingTitle: "Nadchodzące",
+    pastTitle: "Odbyte",
+    types: {
+      retreat: "Wyjazd rozwojowy",
+      conference: "Konferencja",
+      workshop: "Warsztaty",
+      training: "Szkolenie",
+    },
+    moreInfo: "Więcej informacji",
+    openLabel: "Otwiera się w nowej karcie",
   },
   contact: {
     eyebrow: "Kontakt",
