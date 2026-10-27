@@ -8,8 +8,8 @@ export const siteConfig = {
   email: "kontakt@psychoterapia.pl",
   address: {
     street: "ul. Przykładowa 12/3",
-    postalCode: "00-001",
-    city: "Warszawa",
+    postalCode: "00-000",
+    city: "Miasto",
   },
 };
 

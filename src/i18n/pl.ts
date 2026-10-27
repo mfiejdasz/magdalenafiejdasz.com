@@ -2,7 +2,7 @@ export const pl = {
   meta: {
     title: "Psychoterapia – Znajdź spokój i zrozumienie",
     description:
-      "Profesjonalna pomoc psychologiczna dla dorosłych i rodzin w Warszawie. Bezpieczna przestrzeń, w której możesz być sobą.",
+      "Psychoterapia online dla osób dorosłych. Bezpieczna, przyjazna atmosfera i towarzyszenie w odkrywaniu własnej drogi.",
   },
   brand: "Psychoterapia",
   nav: {
@@ -19,10 +19,10 @@ export const pl = {
     label: "English version",
   },
   hero: {
-    eyebrow: "Psychoterapia · Warszawa",
-    titleLine: "Znajdź spokój",
-    titleHighlight: "i zrozumienie",
-    text: "Profesjonalna pomoc psychologiczna dla dorosłych i rodzin. Bezpieczna przestrzeń, w której możesz być sobą.",
+    eyebrow: "Psychoterapia online",
+    titleLine: "Towarzyszę Ci",
+    titleHighlight: "w odkrywaniu własnej drogi",
+    text: "Podążam za Tobą z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze. Z jednym wspólnym celem – poprawą komfortu życia.",
     cta: "Umów wizytę",
     more: "Dowiedz się więcej",
   },

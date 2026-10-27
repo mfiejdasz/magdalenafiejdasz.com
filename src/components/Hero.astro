@@ -21,9 +21,8 @@ const t = getDictionary(lang).hero;
     <div class="hero__inner">
       <p class="hero__eyebrow">{t.eyebrow}</p>
       <h1 class="hero__title">
-        {t.titleLine}
-        <br />
-        <span>{t.titleHighlight}</span>
+        <span class="hero__title-line">{t.titleLine}</span>
+        <span class="hero__title-line hero__title-line--accent">{t.titleHighlight}</span>
       </h1>
       <p class="hero__text">{t.text}</p>
       <div class="hero__actions">
@@ -93,10 +92,15 @@ const t = getDictionary(lang).hero;
     @include up(lg) {
       font-size: 3.75rem;
     }
+  }
 
-    span {
-      color: $primary;
-    }
+  .hero__title-line {
+    display: block;
+    text-wrap: balance;
+  }
+
+  .hero__title-line--accent {
+    color: $primary;
   }
 
   .hero__text {

@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "Psychotherapy – Find Calm and Understanding",
     description:
-      "Professional psychological support for adults and families in Warsaw. A safe space where you can be yourself.",
+      "Online psychotherapy for adults. A safe, friendly atmosphere and support in discovering your own path.",
   },
   brand: "Psychotherapy",
   nav: {
@@ -21,10 +21,10 @@ export const en: Dictionary = {
     label: "Wersja polska",
   },
   hero: {
-    eyebrow: "Psychotherapy · Warsaw",
-    titleLine: "Find calm",
-    titleHighlight: "and understanding",
-    text: "Professional psychological support for adults and families. A safe space where you can be yourself.",
+    eyebrow: "Psychotherapy online",
+    titleLine: "I walk beside you",
+    titleHighlight: "as you discover your own path",
+    text: "I follow your lead with curiosity and attentiveness, in a safe, friendly atmosphere. With one shared goal – improving your quality of life.",
     cta: "Book a visit",
     more: "Learn more",
   },
