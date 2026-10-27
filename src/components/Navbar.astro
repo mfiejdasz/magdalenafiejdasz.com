@@ -68,8 +68,7 @@ const links = [
         {
           links.map((link, index) => (
             <a href={link.href} class="navbar__mobile-link" style={`--i: ${index}`}>
-              <span>{link.label}</span>
-              <Icon name="lucide:arrow-right" size={18} />
+              {link.label}
             </a>
           ))
         }
@@ -329,33 +328,34 @@ const links = [
   }
 
   .navbar__mobile-link {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     min-height: 3.5rem;
-    border-bottom: 1px solid with-alpha($border, 0.8);
     font-family: $font-heading;
     font-size: 1.375rem;
     font-weight: 500;
     color: $foreground;
 
-    :global(svg) {
-      color: $primary;
-      transition: transform 0.2s;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, with-alpha($primary, 0.3), transparent);
     }
 
     &:hover,
     &:focus-visible {
       color: $primary;
-
-      :global(svg) {
-        transform: translateX(0.25rem);
-      }
     }
   }
 
   .navbar__mobile-lang {
-    align-self: flex-start;
+    align-self: center;
     margin-top: 1.5rem;
     padding: 0.5rem 1rem;
     border: 1px solid $border;
