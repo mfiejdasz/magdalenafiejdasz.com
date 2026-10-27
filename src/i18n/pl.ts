@@ -12,7 +12,6 @@ export const pl = {
     articles: "Artykuły",
     news: "Aktualności",
     contact: "Kontakt",
-    book: "Umów wizytę",
   },
   languageSwitch: {
     text: "EN",
@@ -23,7 +22,7 @@ export const pl = {
     titleLine: "Towarzyszę Ci",
     titleHighlight: "w odkrywaniu własnej drogi",
     text: "Podążam za Tobą z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze. Z jednym wspólnym celem – poprawą komfortu życia.",
-    cta: "Umów wizytę",
+    cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
   },
   about: {

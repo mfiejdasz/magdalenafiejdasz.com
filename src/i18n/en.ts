@@ -14,7 +14,6 @@ export const en: Dictionary = {
     articles: "Articles",
     news: "News",
     contact: "Contact",
-    book: "Book a visit",
   },
   languageSwitch: {
     text: "PL",
@@ -25,7 +24,7 @@ export const en: Dictionary = {
     titleLine: "I walk beside you",
     titleHighlight: "as you discover your own path",
     text: "I follow your lead with curiosity and attentiveness, in a safe, friendly atmosphere. With one shared goal – improving your quality of life.",
-    cta: "Book a visit",
+    cta: "Write to me",
     more: "Learn more",
   },
   about: {
