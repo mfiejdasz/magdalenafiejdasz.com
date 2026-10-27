@@ -141,12 +141,38 @@ const links: NavLink[] = [
   }
 
   .navbar__link {
+    position: relative;
+    padding-block: 0.25rem;
     font-size: 0.875rem;
     color: $muted-foreground;
-    transition: color 0.2s;
+    transition: color 0.25s;
 
-    &:hover {
-      color: $foreground;
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, currentColor 25%, currentColor 75%, transparent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $primary;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::after {
+        transition-duration: 0s;
+      }
     }
   }
 
