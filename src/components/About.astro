@@ -1,0 +1,258 @@
+---
+import { Image } from "astro:assets";
+import therapistImg from "../assets/therapist.jpg";
+import { getDictionary, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).about;
+---
+
+<section id="about" class="about">
+  <div class="about__container">
+    <div class="about__grid">
+      <div class="about__media">
+        <div class="about__photo">
+          <Image src={therapistImg} alt={t.imageAlt} widths={[480, 800]} sizes="(min-width: 768px) 45vw, 100vw" loading="lazy" />
+        </div>
+        <span class="about__decor"></span>
+      </div>
+
+      <div>
+        <p class="about__eyebrow">{t.eyebrow}</p>
+        <h2 class="about__title">{t.title}</h2>
+        <p class="about__role">{t.role}</p>
+        <div class="about__text">
+          {t.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <dl class="about__facts">
+          {
+            t.facts.map((fact) => (
+              <div class="about__fact">
+                <dt>{fact.value}</dt>
+                <dd>{fact.label}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+
+    <div class="about__details">
+      <div class="about__card">
+        <h3 class="about__card-title">{t.education.title}</h3>
+        <ul class="about__list">
+          {t.education.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="about__card">
+        <h3 class="about__card-title">{t.experience.title}</h3>
+        <ul class="about__list">
+          {t.experience.items.map((item) => <li>{item}</li>)}
+        </ul>
+        <details class="about__more">
+          <summary>{t.experience.moreLabel}</summary>
+          <ul class="about__list">
+            {t.experience.moreItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .about {
+    @include section-padding;
+    background: $background;
+  }
+
+  .about__container {
+    @include container;
+  }
+
+  .about__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include up(lg) {
+      gap: 5rem;
+    }
+  }
+
+  .about__media {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .about__photo {
+    overflow: hidden;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-card;
+
+    :global(img) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+  }
+
+  .about__decor {
+    position: absolute;
+    right: -1rem;
+    bottom: -1rem;
+    z-index: -1;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: with-alpha($accent, 0.5);
+  }
+
+  .about__eyebrow {
+    @include eyebrow;
+    margin-bottom: 0.75rem;
+  }
+
+  .about__title {
+    @include section-title;
+    margin-bottom: 0.75rem;
+    line-height: 1.375;
+  }
+
+  .about__role {
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+    color: $primary;
+  }
+
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    line-height: 1.625;
+    color: $muted-foreground;
+  }
+
+  .about__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $border;
+  }
+
+  .about__fact {
+    dt {
+      font-family: $font-heading;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $foreground;
+    }
+
+    dd {
+      margin-top: 0.125rem;
+      font-size: 0.8125rem;
+      line-height: 1.4;
+      color: $muted-foreground;
+    }
+  }
+
+  .about__details {
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .about__card {
+    padding: 2rem;
+    border-radius: $radius-lg;
+    background: $card;
+    box-shadow: $shadow-card;
+
+    @include up(lg) {
+      padding: 2.5rem;
+    }
+  }
+
+  .about__card-title {
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.33;
+  }
+
+  .about__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: $muted-foreground;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.55em;
+        left: 0;
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 50%;
+        background: $primary;
+      }
+    }
+  }
+
+  .about__more {
+    margin-top: 1rem;
+
+    summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $primary;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "+";
+        font-size: 1.125rem;
+        line-height: 1;
+      }
+    }
+
+    &[open] summary::after {
+      content: "−";
+    }
+
+    .about__list {
+      margin-top: 1rem;
+    }
+  }
+</style>

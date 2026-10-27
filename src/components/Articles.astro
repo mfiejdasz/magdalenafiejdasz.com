@@ -1,0 +1,206 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionHeader from "./SectionHeader.astro";
+import { getDictionary, type Lang } from "../i18n";
+import { pressArticles, scientificPublications, scientificPublicationsUrl } from "../data/articles";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).articles;
+
+const groups = [
+  { title: t.pressTitle, icon: "lucide:newspaper", items: pressArticles },
+  {
+    title: t.scientificTitle,
+    icon: "lucide:graduation-cap",
+    items: scientificPublications,
+    moreUrl: scientificPublicationsUrl,
+    moreLabel: t.scientificLink,
+  },
+];
+---
+
+<section id="articles" class="articles">
+  <div class="articles__container">
+    <SectionHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
+
+    <div class="articles__grid">
+      {
+        groups.map((group) => (
+          <div class="articles__group">
+            <div class="articles__group-header">
+              <div class="articles__icon">
+                <Icon name={group.icon} size={24} />
+              </div>
+              <h3 class="articles__group-title">{group.title}</h3>
+            </div>
+
+            <ul class="articles__list">
+              {
+                group.items.map((item) => (
+                  <li>
+                    {item.url ? (
+                      <a
+                        class="articles__item articles__item--link"
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span class="articles__text">
+                          <span class="articles__title">{item.title}</span>
+                          <span class="articles__meta">{item.source}</span>
+                        </span>
+                        <Icon name="lucide:arrow-up-right" size={18} class="articles__arrow" />
+                        <span class="sr-only">{t.openLabel}</span>
+                      </a>
+                    ) : (
+                      <div class="articles__item">
+                        <span class="articles__text">
+                          <span class="articles__title">{item.title}</span>
+                          <span class="articles__meta">
+                            {item.source}
+                            {item.year && ` · ${item.year}`}
+                          </span>
+                        </span>
+                      </div>
+                    )}
+                  </li>
+                ))
+              }
+            </ul>
+
+            {
+              group.moreUrl && (
+                <a class="articles__more" href={group.moreUrl} target="_blank" rel="noopener noreferrer">
+                  {group.moreLabel}
+                  <Icon name="lucide:arrow-up-right" size={16} />
+                  <span class="sr-only">{t.openLabel}</span>
+                </a>
+              )
+            }
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .articles {
+    @include section-padding;
+  }
+
+  .articles__container {
+    @include container;
+  }
+
+  .articles__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+
+    @include up(lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .articles__group {
+    padding: 2rem;
+    border-radius: $radius-lg;
+    background: $card;
+    box-shadow: $shadow-card;
+
+    @include up(lg) {
+      padding: 2.5rem;
+    }
+  }
+
+  .articles__group-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .articles__icon {
+    @include icon-box(3rem, $radius-md);
+  }
+
+  .articles__group-title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.33;
+  }
+
+  .articles__list {
+    display: flex;
+    flex-direction: column;
+
+    li + li {
+      border-top: 1px solid $border;
+    }
+  }
+
+  .articles__item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .articles__item--link {
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+
+      :global(.articles__arrow) {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+
+  .articles__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .articles__title {
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .articles__meta {
+    font-size: 0.875rem;
+    color: $muted-foreground;
+  }
+
+  .articles__item :global(.articles__arrow) {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    color: $primary;
+    transition: transform 0.2s;
+  }
+
+  .articles__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $primary;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $accent-foreground;
+    }
+  }
+</style>

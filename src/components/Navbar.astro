@@ -1,0 +1,193 @@
+---
+import { Image } from "astro:assets";
+import MenuToggle from "./MenuToggle.astro";
+import MobileMenu from "./MobileMenu.astro";
+import logo from "../assets/logo.png";
+import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
+import { siteConfig } from "../config";
+import type { NavLink } from "../types";
+
+interface Props {
+  lang: Lang;
+  onHome?: boolean;
+  switchHref?: string;
+}
+
+const { lang, onHome = true, switchHref } = Astro.props;
+const t = getDictionary(lang);
+const otherLang = getOtherLang(lang);
+const anchorBase = onHome ? "" : getHomePath(lang);
+const langHref = switchHref ?? getHomePath(otherLang);
+const menuId = "mobile-menu";
+const links: NavLink[] = [
+  { label: t.nav.about, href: `${anchorBase}#about` },
+  { label: t.nav.services, href: `${anchorBase}#services` },
+  { label: t.nav.articles, href: `${anchorBase}#articles` },
+  { label: t.nav.news, href: `${anchorBase}#news` },
+  { label: t.nav.contact, href: `${anchorBase}#contact` },
+];
+---
+
+<nav class="navbar" data-navbar data-open="false">
+  <div class="navbar__inner">
+    <a href={getHomePath(lang)} class="navbar__brand">
+      <span class="navbar__logo">
+        <Image src={logo} alt="" width={96} loading="eager" />
+      </span>
+      <span class="navbar__brand-text">
+        <span class="navbar__brand-name">{siteConfig.name}</span>
+        <span class="navbar__brand-tagline">{t.brand}</span>
+      </span>
+    </a>
+
+    <div class="navbar__desktop">
+      {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
+      <a
+        href={langHref}
+        class="navbar__lang"
+        hreflang={otherLang}
+        lang={otherLang}
+        aria-label={t.languageSwitch.label}
+      >
+        {t.languageSwitch.text}
+      </a>
+    </div>
+
+    <MenuToggle label={t.nav.menu} controls={menuId} />
+  </div>
+
+  <MobileMenu id={menuId} lang={lang} links={links} langHref={langHref} />
+</nav>
+
+<script>
+  import "../scripts/mobile-menu";
+</script>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: with-alpha($background, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid with-alpha($border, 0.5);
+    transition: background 0.3s;
+
+    &[data-open="true"] {
+      background: with-alpha($background, 0.97);
+    }
+  }
+
+  .navbar__inner {
+    @include container;
+    max-width: calc(72rem + 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $navbar-height;
+    padding-inline: 1.5rem;
+  }
+
+  .navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .navbar__logo {
+    display: flex;
+
+    :global(img) {
+      width: auto;
+      height: 3.25rem;
+    }
+  }
+
+  .navbar__brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar__brand-name {
+    font-family: $font-heading;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .navbar__brand-tagline {
+    margin-top: 0.125rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $primary;
+  }
+
+  .navbar__desktop {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+
+    @include up(md) {
+      display: flex;
+    }
+  }
+
+  .navbar__link {
+    position: relative;
+    padding-block: 0.25rem;
+    font-size: 0.875rem;
+    color: $muted-foreground;
+    transition: color 0.25s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, currentColor 25%, currentColor 75%, transparent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $primary;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::after {
+        transition-duration: 0s;
+      }
+    }
+  }
+
+  .navbar__lang {
+    padding: 0.25rem 0.625rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $muted-foreground;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $accent;
+      color: $accent-foreground;
+    }
+  }
+</style>

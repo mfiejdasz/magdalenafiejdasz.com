@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NotFoundView from "../components/NotFoundView.astro";
+import { getDictionary } from "../i18n";
+
+const plTitle = getDictionary("pl").notFound.metaTitle;
+const enTitle = getDictionary("en").notFound.metaTitle;
+---
+
+<Layout lang="pl" title={plTitle} noindex>
+  <div data-view="pl" style="display: contents">
+    <NotFoundView lang="pl" />
+  </div>
+  <template data-view="en" data-title={enTitle}>
+    <NotFoundView lang="en" />
+  </template>
+  <script is:inline>
+    (function () {
+      var template = document.querySelector('template[data-view="en"]');
+      var plView = document.querySelector('div[data-view="pl"]');
+      if (!template || !plView) return;
+      if (/^\/en(\/|$)/.test(location.pathname)) {
+        document.documentElement.lang = "en";
+        document.title = template.getAttribute("data-title") || document.title;
+        plView.remove();
+        template.replaceWith(template.content);
+      } else {
+        template.remove();
+      }
+    })();
+  </script>
+</Layout>

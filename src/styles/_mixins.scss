@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin up($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin below($breakpoint) {
+  @media (max-width: map.get($breakpoints, $breakpoint) - 1px) {
+    @content;
+  }
+}
+
+@mixin container {
+  margin-inline: auto;
+  max-width: 72rem;
+}
+
+@mixin section-padding {
+  padding: 5rem 1.5rem;
+
+  @include up(md) {
+    padding-inline: 3rem;
+  }
+
+  @include up(lg) {
+    padding: 7rem 6rem;
+  }
+}
+
+@mixin eyebrow {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $primary;
+}
+
+@mixin section-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: $foreground;
+
+  @include up(md) {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin icon-box($size, $radius) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: $size;
+  height: $size;
+  border-radius: $radius;
+  background: $accent;
+  color: $accent-foreground;
+}

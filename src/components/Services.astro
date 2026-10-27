@@ -1,0 +1,110 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionHeader from "./SectionHeader.astro";
+import { getDictionary, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).services;
+const icons = ["lucide:heart-pulse", "lucide:users", "lucide:compass", "lucide:sprout"];
+---
+
+<section id="services" class="services">
+  <div class="services__container">
+    <SectionHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
+
+    <div class="services__grid">
+      {
+        t.items.map((item, index) => (
+          <article class="services__card">
+            <div class="services__icon">
+              <Icon name={icons[index]} size={28} />
+            </div>
+            <h3 class="services__title">{item.title}</h3>
+            <ul class="services__points">
+              {item.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .services {
+    @include section-padding;
+    background: with-alpha($secondary, 0.3);
+  }
+
+  .services__container {
+    @include container;
+  }
+
+  .services__grid {
+    display: grid;
+    gap: 2rem;
+
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .services__card {
+    padding: 2rem;
+    border-radius: $radius-lg;
+    background: $card;
+    box-shadow: $shadow-card;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: $shadow-soft;
+    }
+
+    @include up(lg) {
+      padding: 2.5rem;
+    }
+  }
+
+  .services__icon {
+    @include icon-box(3.5rem, $radius-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .services__title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.33;
+  }
+
+  .services__points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: $muted-foreground;
+
+      &::before {
+        content: "";
+        flex-shrink: 0;
+        margin-top: 0.55em;
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 50%;
+        background: $primary;
+      }
+    }
+  }
+</style>

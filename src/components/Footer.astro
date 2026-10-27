@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+import { getDictionary, getPrivacyPath, type Lang } from "../i18n";
+import { siteConfig } from "../config";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).footer;
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">
+        <Image src={logo} alt="" width={96} loading="lazy" />
+      </span>
+      <span>© {new Date().getFullYear()} {siteConfig.businessName}. {t.rights}.</span>
+    </div>
+    <div class="footer__meta">
+      <a href={getPrivacyPath(lang)} class="footer__link">{t.privacy}</a>
+      <span>
+        {t.credit}
+        <a href={siteConfig.author.url} class="footer__link" target="_blank" rel="noopener noreferrer">
+          {siteConfig.author.name}
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid $border;
+  }
+
+  .footer__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: $muted-foreground;
+    text-align: center;
+
+    @include up(sm) {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    @include up(sm) {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  .footer__logo {
+    display: flex;
+    flex-shrink: 0;
+
+    :global(img) {
+      width: auto;
+      height: 2rem;
+    }
+  }
+
+  .footer__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include up(sm) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  .footer__link {
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+</style>
