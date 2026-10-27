@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "Psychotherapy – Find Calm and Understanding",
     description:
-      "Professional psychological support for adults and families in Poznań. A safe space where you can be yourself.",
+      "Professional psychological support for adults and families in Warsaw. A safe space where you can be yourself.",
   },
   brand: "Psychotherapy",
   nav: {
@@ -21,7 +21,7 @@ export const en: Dictionary = {
     label: "Wersja polska",
   },
   hero: {
-    eyebrow: "Psychotherapy · Poznań",
+    eyebrow: "Psychotherapy · Warsaw",
     titleLine: "Find calm",
     titleHighlight: "and understanding",
     text: "Professional psychological support for adults and families. A safe space where you can be yourself.",
@@ -63,7 +63,7 @@ export const en: Dictionary = {
     steps: [
       {
         title: "Contact",
-        description: "Call or book online through ZnanyLekarz. I will answer your first questions.",
+        description: "Call or write to me. I will answer your first questions.",
       },
       {
         title: "First conversation",
@@ -89,7 +89,7 @@ export const en: Dictionary = {
     ],
     officeTitle: "In-person office",
     officeText: "Sessions take place on site in a cosy office.",
-    cta: "Book a visit on ZnanyLekarz",
+    cta: "Book a visit",
   },
   contact: {
     eyebrow: "Contact",
@@ -97,7 +97,6 @@ export const en: Dictionary = {
     address: "Address",
     phone: "Phone",
     email: "E-mail",
-    cta: "Book a visit on ZnanyLekarz",
   },
   footer: {
     rights: "All rights reserved",

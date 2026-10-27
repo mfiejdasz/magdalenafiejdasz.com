@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import Button from "./Button.astro";
 import SectionHeader from "./SectionHeader.astro";
 import { getDictionary, type Lang } from "../i18n";
 import { emailHref, phoneHref, siteConfig } from "../config";
@@ -43,10 +42,6 @@ const { street, postalCode, city } = siteConfig.address;
             <p class="contact__value"><a href={emailHref}>{siteConfig.email}</a></p>
           </div>
         </div>
-      </div>
-
-      <div class="contact__cta">
-        <Button href={siteConfig.bookingUrl} size="xl" block external>{t.cta}</Button>
       </div>
     </div>
   </div>
@@ -97,9 +92,5 @@ const { street, postalCode, city } = siteConfig.address;
     a:hover {
       color: $primary;
     }
-  }
-
-  .contact__cta {
-    margin-top: 2.5rem;
   }
 </style>

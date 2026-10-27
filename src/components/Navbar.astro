@@ -2,8 +2,6 @@
 import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
 import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
-import { siteConfig } from "../config";
-
 interface Props {
   lang: Lang;
 }
@@ -35,7 +33,7 @@ const links = [
       >
         {t.languageSwitch.text}
       </a>
-      <Button href={siteConfig.bookingUrl} variant="nav" size="sm" external>{t.nav.book}</Button>
+      <Button href="#contact" variant="nav" size="sm">{t.nav.book}</Button>
     </div>
 
     <button
@@ -63,7 +61,7 @@ const links = [
       >
         {t.languageSwitch.text}
       </a>
-      <Button href={siteConfig.bookingUrl} external>{t.nav.book}</Button>
+      <Button href="#contact">{t.nav.book}</Button>
     </div>
   </div>
 </nav>

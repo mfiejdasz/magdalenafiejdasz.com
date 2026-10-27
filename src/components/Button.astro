@@ -3,19 +3,12 @@ interface Props {
   href: string;
   variant?: "hero" | "nav" | "outline";
   size?: "default" | "sm" | "lg" | "xl";
-  external?: boolean;
-  block?: boolean;
 }
 
-const { href, variant = "hero", size = "default", external = false, block = false } = Astro.props;
-const externalAttrs = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+const { href, variant = "hero", size = "default" } = Astro.props;
 ---
 
-<a
-  href={href}
-  class:list={["button", `button--${variant}`, `button--${size}`, { "button--block": block }]}
-  {...externalAttrs}
->
+<a href={href} class:list={["button", `button--${variant}`, `button--${size}`]}>
   <slot />
 </a>
 
@@ -93,13 +86,5 @@ const externalAttrs = external ? { target: "_blank", rel: "noopener noreferrer" 
     height: 3.5rem;
     padding-inline: 2.5rem;
     font-size: 1.125rem;
-  }
-
-  .button--block {
-    width: 100%;
-
-    @include up(sm) {
-      width: auto;
-    }
   }
 </style>

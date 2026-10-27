@@ -3,8 +3,6 @@ import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import heroBg from "../assets/hero-bg.jpg";
 import { getDictionary, type Lang } from "../i18n";
-import { siteConfig } from "../config";
-
 interface Props {
   lang: Lang;
 }
@@ -29,7 +27,7 @@ const t = getDictionary(lang).hero;
       </h1>
       <p class="hero__text">{t.text}</p>
       <div class="hero__actions">
-        <Button href={siteConfig.bookingUrl} size="xl" external>{t.cta}</Button>
+        <Button href="#contact" size="xl">{t.cta}</Button>
         <Button href="#about" variant="outline" size="xl">{t.more}</Button>
       </div>
     </div>

@@ -2,7 +2,7 @@ export const pl = {
   meta: {
     title: "Psychoterapia – Znajdź spokój i zrozumienie",
     description:
-      "Profesjonalna pomoc psychologiczna dla dorosłych i rodzin w Poznaniu. Bezpieczna przestrzeń, w której możesz być sobą.",
+      "Profesjonalna pomoc psychologiczna dla dorosłych i rodzin w Warszawie. Bezpieczna przestrzeń, w której możesz być sobą.",
   },
   brand: "Psychoterapia",
   nav: {
@@ -19,7 +19,7 @@ export const pl = {
     label: "English version",
   },
   hero: {
-    eyebrow: "Psychoterapia · Poznań",
+    eyebrow: "Psychoterapia · Warszawa",
     titleLine: "Znajdź spokój",
     titleHighlight: "i zrozumienie",
     text: "Profesjonalna pomoc psychologiczna dla dorosłych i rodzin. Bezpieczna przestrzeń, w której możesz być sobą.",
@@ -61,7 +61,7 @@ export const pl = {
     steps: [
       {
         title: "Kontakt",
-        description: "Zadzwoń lub umów się online przez ZnanyLekarz. Odpowiem na Twoje pierwsze pytania.",
+        description: "Zadzwoń lub napisz do mnie. Odpowiem na Twoje pierwsze pytania.",
       },
       {
         title: "Pierwsza rozmowa",
@@ -87,7 +87,7 @@ export const pl = {
     ],
     officeTitle: "Gabinet stacjonarny",
     officeText: "Spotkania odbywają się na miejscu w kameralnym gabinecie.",
-    cta: "Umów wizytę na ZnanyLekarz",
+    cta: "Umów wizytę",
   },
   contact: {
     eyebrow: "Kontakt",
@@ -95,7 +95,6 @@ export const pl = {
     address: "Adres",
     phone: "Telefon",
     email: "E-mail",
-    cta: "Umów wizytę na ZnanyLekarz",
   },
   footer: {
     rights: "Wszelkie prawa zastrzeżone",
