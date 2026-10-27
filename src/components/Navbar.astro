@@ -1,7 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
+import logo from "../assets/logo.png";
 import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
+import { siteConfig } from "../config";
 interface Props {
   lang: Lang;
 }
@@ -20,7 +23,15 @@ const links = [
 
 <nav class="navbar">
   <div class="navbar__inner">
-    <a href={getHomePath(lang)} class="navbar__brand">{t.brand}</a>
+    <a href={getHomePath(lang)} class="navbar__brand">
+      <span class="navbar__logo">
+        <Image src={logo} alt="" width={96} loading="eager" />
+      </span>
+      <span class="navbar__brand-text">
+        <span class="navbar__brand-name">{siteConfig.name}</span>
+        <span class="navbar__brand-tagline">{t.brand}</span>
+      </span>
+    </a>
 
     <div class="navbar__desktop">
       {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
@@ -110,10 +121,41 @@ const links = [
   }
 
   .navbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .navbar__logo {
+    display: flex;
+
+    :global(img) {
+      width: auto;
+      height: 3.25rem;
+    }
+  }
+
+  .navbar__brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar__brand-name {
     font-family: $font-heading;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
-    letter-spacing: -0.025em;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .navbar__brand-tagline {
+    margin-top: 0.125rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $primary;
   }
 
   .navbar__desktop {
