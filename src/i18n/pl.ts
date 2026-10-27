@@ -98,6 +98,7 @@ export const pl = {
   },
   footer: {
     rights: "Wszelkie prawa zastrzeżone",
+    credit: "Wykonanie:",
   },
   notFound: {
     title: "404",

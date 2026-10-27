@@ -1,4 +1,9 @@
 export const siteConfig = {
+  businessName: "Psychoterapia Magdalena Fiejdasz",
+  author: {
+    name: "pawelek.dev",
+    url: "https://pawelek.dev",
+  },
   phone: "+48 123 456 789",
   email: "kontakt@psychoterapia.pl",
   address: {

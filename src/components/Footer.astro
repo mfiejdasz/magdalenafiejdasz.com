@@ -1,18 +1,24 @@
 ---
 import { getDictionary, type Lang } from "../i18n";
+import { siteConfig } from "../config";
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = getDictionary(lang);
+const t = getDictionary(lang).footer;
 ---
 
 <footer class="footer">
   <div class="footer__inner">
-    <span class="footer__brand">{t.brand}</span>
-    <span>© {new Date().getFullYear()} {t.footer.rights}</span>
+    <span>© {new Date().getFullYear()} {siteConfig.businessName}. {t.rights}.</span>
+    <span>
+      {t.credit}
+      <a href={siteConfig.author.url} class="footer__link" target="_blank" rel="noopener noreferrer">
+        {siteConfig.author.name}
+      </a>
+    </span>
   </div>
 </footer>
 
@@ -33,15 +39,19 @@ const t = getDictionary(lang);
     gap: 1rem;
     font-size: 0.875rem;
     color: $muted-foreground;
+    text-align: center;
 
     @include up(sm) {
       flex-direction: row;
+      text-align: left;
     }
   }
 
-  .footer__brand {
-    font-family: $font-heading;
-    font-weight: 600;
-    color: $foreground;
+  .footer__link {
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
   }
 </style>

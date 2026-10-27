@@ -100,6 +100,7 @@ export const en: Dictionary = {
   },
   footer: {
     rights: "All rights reserved",
+    credit: "Made by",
   },
   notFound: {
     title: "404",
