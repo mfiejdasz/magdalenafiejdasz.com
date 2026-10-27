@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PrivacyPolicy from "../../components/PrivacyPolicy.astro";
+import { getDictionary, getPrivacyPath } from "../../i18n";
+
+const paths = { pl: getPrivacyPath("pl"), en: getPrivacyPath("en") };
+---
+
+<Layout lang="en" title={getDictionary("en").privacy.metaTitle} paths={paths}>
+  <PrivacyPolicy lang="en" />
+</Layout>

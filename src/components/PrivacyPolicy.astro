@@ -1,0 +1,58 @@
+---
+import Navbar from "./Navbar.astro";
+import Footer from "./Footer.astro";
+import { getDictionary, getHomePath, getOtherLang, getPrivacyPath, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).privacy;
+---
+
+<Navbar lang={lang} onHome={false} switchHref={getPrivacyPath(getOtherLang(lang))} />
+<main class="privacy">
+  <div class="privacy__container">
+    <h1 class="privacy__title">{t.title}</h1>
+    <p class="privacy__placeholder">{t.placeholder}</p>
+    <a href={getHomePath(lang)} class="privacy__back">{t.back}</a>
+  </div>
+</main>
+<Footer lang={lang} />
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .privacy {
+    min-height: calc(100vh - 8rem);
+    padding: calc($navbar-height + 4rem) 1.5rem 5rem;
+  }
+
+  .privacy__container {
+    margin-inline: auto;
+    max-width: 48rem;
+  }
+
+  .privacy__title {
+    margin-bottom: 1.5rem;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+
+    @include up(md) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .privacy__placeholder {
+    margin-bottom: 2rem;
+    color: $muted-foreground;
+  }
+
+  .privacy__back {
+    color: $primary;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

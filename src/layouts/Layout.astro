@@ -15,12 +15,16 @@ import { getDictionary, getHomePath, languages, type Lang } from "../i18n";
 interface Props {
   lang: Lang;
   noindex?: boolean;
+  title?: string;
+  paths?: Record<Lang, string>;
 }
 
-const { lang, noindex = false } = Astro.props;
+const { lang, noindex = false, title, paths } = Astro.props;
 const t = getDictionary(lang);
 const locales: Record<Lang, string> = { pl: "pl_PL", en: "en_US" };
 const toUrl = (path: string) => new URL(path, Astro.site);
+const pathFor = (code: Lang) => paths?.[code] ?? getHomePath(code);
+const pageTitle = title ?? t.meta.title;
 ---
 
 <!doctype html>
@@ -28,7 +32,7 @@ const toUrl = (path: string) => new URL(path, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{t.meta.title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={t.meta.description} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -36,16 +40,16 @@ const toUrl = (path: string) => new URL(path, Astro.site);
     {
       !noindex && (
         <>
-          <link rel="canonical" href={toUrl(getHomePath(lang))} />
+          <link rel="canonical" href={toUrl(pathFor(lang))} />
           {languages.map((code) => (
-            <link rel="alternate" hreflang={code} href={toUrl(getHomePath(code))} />
+            <link rel="alternate" hreflang={code} href={toUrl(pathFor(code))} />
           ))}
-          <link rel="alternate" hreflang="x-default" href={toUrl(getHomePath("pl"))} />
-          <meta property="og:url" content={toUrl(getHomePath(lang))} />
+          <link rel="alternate" hreflang="x-default" href={toUrl(pathFor("pl"))} />
+          <meta property="og:url" content={toUrl(pathFor(lang))} />
         </>
       )
     }
-    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={locales[lang]} />

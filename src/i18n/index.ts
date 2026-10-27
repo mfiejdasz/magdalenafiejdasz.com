@@ -11,4 +11,6 @@ export const getDictionary = (lang: Lang): Dictionary => dictionaries[lang];
 
 export const getHomePath = (lang: Lang): string => (lang === "pl" ? "/" : "/en/");
 
+export const getPrivacyPath = (lang: Lang): string => (lang === "pl" ? "/polityka-prywatnosci/" : "/en/privacy-policy/");
+
 export const getOtherLang = (lang: Lang): Lang => (lang === "pl" ? "en" : "pl");

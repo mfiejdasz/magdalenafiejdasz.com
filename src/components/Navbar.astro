@@ -7,17 +7,21 @@ import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
 import { siteConfig } from "../config";
 interface Props {
   lang: Lang;
+  onHome?: boolean;
+  switchHref?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, onHome = true, switchHref } = Astro.props;
 const t = getDictionary(lang);
 const otherLang = getOtherLang(lang);
+const anchorBase = onHome ? "" : getHomePath(lang);
+const langHref = switchHref ?? getHomePath(otherLang);
 const links = [
-  { label: t.nav.about, href: "#about" },
-  { label: t.nav.services, href: "#services" },
-  { label: t.nav.articles, href: "#articles" },
-  { label: t.nav.news, href: "#news" },
-  { label: t.nav.contact, href: "#contact" },
+  { label: t.nav.about, href: `${anchorBase}#about` },
+  { label: t.nav.services, href: `${anchorBase}#services` },
+  { label: t.nav.articles, href: `${anchorBase}#articles` },
+  { label: t.nav.news, href: `${anchorBase}#news` },
+  { label: t.nav.contact, href: `${anchorBase}#contact` },
 ];
 ---
 
@@ -36,7 +40,7 @@ const links = [
     <div class="navbar__desktop">
       {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
       <a
-        href={getHomePath(otherLang)}
+        href={langHref}
         class="navbar__lang"
         hreflang={otherLang}
         lang={otherLang}
@@ -44,7 +48,7 @@ const links = [
       >
         {t.languageSwitch.text}
       </a>
-      <Button href="#contact" variant="nav" size="sm">{t.nav.book}</Button>
+      <Button href={`${anchorBase}#contact`} variant="nav" size="sm">{t.nav.book}</Button>
     </div>
 
     <button
@@ -64,7 +68,7 @@ const links = [
     <div class="navbar__mobile-links">
       {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
       <a
-        href={getHomePath(otherLang)}
+        href={langHref}
         class="navbar__lang navbar__lang--mobile"
         hreflang={otherLang}
         lang={otherLang}
@@ -72,7 +76,7 @@ const links = [
       >
         {t.languageSwitch.text}
       </a>
-      <Button href="#contact">{t.nav.book}</Button>
+      <Button href={`${anchorBase}#contact`}>{t.nav.book}</Button>
     </div>
   </div>
 </nav>

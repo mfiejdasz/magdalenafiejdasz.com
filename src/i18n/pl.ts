@@ -131,13 +131,29 @@ export const pl = {
   contact: {
     eyebrow: "Kontakt",
     title: "Porozmawiajmy",
-    address: "Adres",
-    phone: "Telefon",
-    email: "E-mail",
+    intro: "Napisz do mnie, odpowiem najszybciej, jak to możliwe.",
+    form: {
+      name: "Imię i nazwisko",
+      email: "E-mail",
+      phone: "Telefon",
+      optional: "opcjonalnie",
+      message: "Wiadomość",
+      messagePlaceholder: "Napisz kilka słów o sobie i o tym, czego szukasz. Resztę omówimy w rozmowie.",
+      consentBefore: "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na wiadomość, zgodnie z",
+      consentLink: "Polityką prywatności",
+      submit: "Wyślij wiadomość",
+    },
   },
   footer: {
     rights: "Wszelkie prawa zastrzeżone",
+    privacy: "Polityka prywatności",
     credit: "Wykonanie:",
+  },
+  privacy: {
+    title: "Polityka prywatności",
+    metaTitle: "Polityka prywatności – Magdalena Fiejdasz",
+    placeholder: "Treść zostanie uzupełniona.",
+    back: "Wróć na stronę główną",
   },
   notFound: {
     title: "404",

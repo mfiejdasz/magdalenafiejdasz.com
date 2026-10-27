@@ -133,13 +133,29 @@ export const en: Dictionary = {
   contact: {
     eyebrow: "Contact",
     title: "Let's talk",
-    address: "Address",
-    phone: "Phone",
-    email: "E-mail",
+    intro: "Write to me and I will reply as soon as possible.",
+    form: {
+      name: "Full name",
+      email: "E-mail",
+      phone: "Phone",
+      optional: "optional",
+      message: "Message",
+      messagePlaceholder: "Write a few words about yourself and what you are looking for. We will talk about the rest in a conversation.",
+      consentBefore: "I consent to the processing of my personal data in order to receive a reply to my message, in accordance with the",
+      consentLink: "Privacy Policy",
+      submit: "Send message",
+    },
   },
   footer: {
     rights: "All rights reserved",
+    privacy: "Privacy Policy",
     credit: "Made by",
+  },
+  privacy: {
+    title: "Privacy Policy",
+    metaTitle: "Privacy Policy – Magdalena Fiejdasz",
+    placeholder: "The content will be added soon.",
+    back: "Back to the home page",
   },
   notFound: {
     title: "404",
