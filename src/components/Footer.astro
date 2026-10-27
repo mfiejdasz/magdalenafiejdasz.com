@@ -1,0 +1,47 @@
+---
+import { getDictionary, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">{t.brand}</span>
+    <span>© {new Date().getFullYear()} {t.footer.rights}</span>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .footer {
+    padding: 2rem 1.5rem;
+    border-top: 1px solid $border;
+  }
+
+  .footer__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: $muted-foreground;
+
+    @include up(sm) {
+      flex-direction: row;
+    }
+  }
+
+  .footer__brand {
+    font-family: $font-heading;
+    font-weight: 600;
+    color: $foreground;
+  }
+</style>

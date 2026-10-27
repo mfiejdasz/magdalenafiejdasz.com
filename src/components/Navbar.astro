@@ -1,0 +1,206 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
+import { siteConfig } from "../config";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const otherLang = getOtherLang(lang);
+const links = [
+  { label: t.nav.about, href: "#about" },
+  { label: t.nav.services, href: "#services" },
+  { label: t.nav.firstVisit, href: "#first-visit" },
+  { label: t.nav.pricing, href: "#pricing" },
+  { label: t.nav.contact, href: "#contact" },
+];
+---
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href={getHomePath(lang)} class="navbar__brand">{t.brand}</a>
+
+    <div class="navbar__desktop">
+      {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
+      <a
+        href={getHomePath(otherLang)}
+        class="navbar__lang"
+        hreflang={otherLang}
+        lang={otherLang}
+        aria-label={t.languageSwitch.label}
+      >
+        {t.languageSwitch.text}
+      </a>
+      <Button href={siteConfig.bookingUrl} variant="nav" size="sm" external>{t.nav.book}</Button>
+    </div>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      aria-label={t.nav.menu}
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <span class="navbar__icon navbar__icon--open"><Icon name="lucide:menu" size={24} /></span>
+      <span class="navbar__icon navbar__icon--close"><Icon name="lucide:x" size={24} /></span>
+    </button>
+  </div>
+
+  <div class="navbar__mobile" id="mobile-menu" data-mobile-menu hidden>
+    <div class="navbar__mobile-links">
+      {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
+      <a
+        href={getHomePath(otherLang)}
+        class="navbar__lang navbar__lang--mobile"
+        hreflang={otherLang}
+        lang={otherLang}
+        aria-label={t.languageSwitch.label}
+      >
+        {t.languageSwitch.text}
+      </a>
+      <Button href={siteConfig.bookingUrl} external>{t.nav.book}</Button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.dataset.open = String(open);
+    };
+
+    toggle.addEventListener("click", () => setOpen(menu.hidden));
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
+  }
+</script>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: with-alpha($background, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid with-alpha($border, 0.5);
+  }
+
+  .navbar__inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $navbar-height;
+    padding-inline: 1.5rem;
+
+    @include up(lg) {
+      padding-inline: 0;
+    }
+  }
+
+  .navbar__brand {
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .navbar__desktop {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+
+    @include up(md) {
+      display: flex;
+    }
+  }
+
+  .navbar__link {
+    font-size: 0.875rem;
+    color: $muted-foreground;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $foreground;
+    }
+  }
+
+  .navbar__lang {
+    padding: 0.25rem 0.625rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $muted-foreground;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $accent;
+      color: $accent-foreground;
+    }
+  }
+
+  .navbar__lang--mobile {
+    align-self: flex-start;
+  }
+
+  .navbar__toggle {
+    display: flex;
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  .navbar__icon {
+    display: inline-flex;
+  }
+
+  .navbar__icon--close {
+    display: none;
+  }
+
+  .navbar__toggle[data-open="true"] {
+    .navbar__icon--open {
+      display: none;
+    }
+
+    .navbar__icon--close {
+      display: inline-flex;
+    }
+  }
+
+  .navbar__mobile {
+    padding: 0 1.5rem 1.5rem;
+    background: $background;
+    border-bottom: 1px solid $border;
+
+    &[hidden] {
+      display: none;
+    }
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  .navbar__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+</style>

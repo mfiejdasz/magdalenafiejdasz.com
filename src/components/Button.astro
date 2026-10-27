@@ -1,0 +1,105 @@
+---
+interface Props {
+  href: string;
+  variant?: "hero" | "nav" | "outline";
+  size?: "default" | "sm" | "lg" | "xl";
+  external?: boolean;
+  block?: boolean;
+}
+
+const { href, variant = "hero", size = "default", external = false, block = false } = Astro.props;
+const externalAttrs = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+---
+
+<a
+  href={href}
+  class:list={["button", `button--${variant}`, `button--${size}`, { "button--block": block }]}
+  {...externalAttrs}
+>
+  <slot />
+</a>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: $radius-md;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+
+  .button--hero {
+    background: $primary;
+    color: $primary-foreground;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition-duration: 0.3s;
+
+    &:hover {
+      background: with-alpha($primary, 0.85);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      transform: translateY(-2px);
+    }
+  }
+
+  .button--nav {
+    background: $primary;
+    color: $primary-foreground;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    &:hover {
+      background: with-alpha($primary, 0.9);
+    }
+  }
+
+  .button--outline {
+    border: 1px solid $border;
+    background: $background;
+
+    &:hover {
+      background: $accent;
+      color: $accent-foreground;
+    }
+  }
+
+  .button--default {
+    height: 2.5rem;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .button--sm {
+    height: 2.25rem;
+    padding-inline: 1rem;
+    border-radius: $radius-sm;
+  }
+
+  .button--lg {
+    height: 3rem;
+    padding-inline: 2rem;
+    font-size: 1rem;
+  }
+
+  .button--xl {
+    height: 3.5rem;
+    padding-inline: 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  .button--block {
+    width: 100%;
+
+    @include up(sm) {
+      width: auto;
+    }
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+import SectionHeader from "./SectionHeader.astro";
+import { getDictionary, type Lang } from "../i18n";
+import { emailHref, phoneHref, siteConfig } from "../config";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).contact;
+const { street, postalCode, city } = siteConfig.address;
+---
+
+<section id="contact" class="contact">
+  <div class="contact__container">
+    <SectionHeader eyebrow={t.eyebrow} title={t.title} />
+
+    <div class="contact__content">
+      <div class="contact__list">
+        <div class="contact__item">
+          <div class="contact__icon"><Icon name="lucide:map-pin" size={22} /></div>
+          <div>
+            <h3 class="contact__label">{t.address}</h3>
+            <p class="contact__value">{street}<br />{postalCode} {city}</p>
+          </div>
+        </div>
+
+        <div class="contact__item">
+          <div class="contact__icon"><Icon name="lucide:phone" size={22} /></div>
+          <div>
+            <h3 class="contact__label">{t.phone}</h3>
+            <p class="contact__value"><a href={phoneHref}>{siteConfig.phone}</a></p>
+          </div>
+        </div>
+
+        <div class="contact__item">
+          <div class="contact__icon"><Icon name="lucide:mail" size={22} /></div>
+          <div>
+            <h3 class="contact__label">{t.email}</h3>
+            <p class="contact__value"><a href={emailHref}>{siteConfig.email}</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__cta">
+        <Button href={siteConfig.bookingUrl} size="xl" block external>{t.cta}</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .contact {
+    @include section-padding;
+    background: $background;
+  }
+
+  .contact__container {
+    @include container;
+  }
+
+  .contact__content {
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .contact__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact__icon {
+    @include icon-box(3rem, $radius-md);
+  }
+
+  .contact__label {
+    font-weight: 600;
+  }
+
+  .contact__value {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: $muted-foreground;
+
+    a:hover {
+      color: $primary;
+    }
+  }
+
+  .contact__cta {
+    margin-top: 2.5rem;
+  }
+</style>

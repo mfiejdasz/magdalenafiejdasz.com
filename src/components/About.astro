@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets";
+import therapistImg from "../assets/therapist.jpg";
+import { getDictionary, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).about;
+---
+
+<section id="about" class="about">
+  <div class="about__container">
+    <div class="about__grid">
+      <div class="about__media">
+        <div class="about__photo">
+          <Image src={therapistImg} alt={t.imageAlt} widths={[480, 800]} sizes="(min-width: 768px) 45vw, 100vw" loading="lazy" />
+        </div>
+        <span class="about__decor"></span>
+      </div>
+
+      <div>
+        <p class="about__eyebrow">{t.eyebrow}</p>
+        <h2 class="about__title">
+          {
+            t.titleLines.map((line, index) => (
+              <>
+                {index > 0 && <br />}
+                {line}
+              </>
+            ))
+          }
+        </h2>
+        <div class="about__text">
+          {t.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .about {
+    @include section-padding;
+    background: $background;
+  }
+
+  .about__container {
+    @include container;
+  }
+
+  .about__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include up(lg) {
+      gap: 5rem;
+    }
+  }
+
+  .about__media {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .about__photo {
+    overflow: hidden;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-card;
+
+    :global(img) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+  }
+
+  .about__decor {
+    position: absolute;
+    right: -1rem;
+    bottom: -1rem;
+    z-index: -1;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: with-alpha($accent, 0.5);
+  }
+
+  .about__eyebrow {
+    @include eyebrow;
+    margin-bottom: 0.75rem;
+  }
+
+  .about__title {
+    @include section-title;
+    margin-bottom: 1.5rem;
+    line-height: 1.375;
+  }
+
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    line-height: 1.625;
+    color: $muted-foreground;
+  }
+</style>

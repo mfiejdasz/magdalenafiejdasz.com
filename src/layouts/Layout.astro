@@ -1,0 +1,56 @@
+---
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/500.css";
+import "@fontsource/playfair-display/600.css";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/400-italic.css";
+import "@fontsource/playfair-display/500-italic.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "../styles/global.scss";
+import { getDictionary, getHomePath, languages, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  noindex?: boolean;
+}
+
+const { lang, noindex = false } = Astro.props;
+const t = getDictionary(lang);
+const locales: Record<Lang, string> = { pl: "pl_PL", en: "en_US" };
+const toUrl = (path: string) => new URL(path, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="icon" href="/favicon.ico" />
+    {noindex && <meta name="robots" content="noindex" />}
+    {
+      !noindex && (
+        <>
+          <link rel="canonical" href={toUrl(getHomePath(lang))} />
+          {languages.map((code) => (
+            <link rel="alternate" hreflang={code} href={toUrl(getHomePath(code))} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={toUrl(getHomePath("pl"))} />
+          <meta property="og:url" content={toUrl(getHomePath(lang))} />
+        </>
+      )
+    }
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locales[lang]} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
