@@ -158,6 +158,7 @@ export const en: Dictionary = {
   },
   notFound: {
     title: "404",
+    metaTitle: "Page not found – Magdalena Fiejdasz",
     text: "Page not found",
     back: "Back to the home page",
   },

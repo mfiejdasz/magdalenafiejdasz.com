@@ -156,6 +156,7 @@ export const pl = {
   },
   notFound: {
     title: "404",
+    metaTitle: "Nie znaleziono strony – Magdalena Fiejdasz",
     text: "Nie znaleziono strony",
     back: "Wróć na stronę główną",
   },

@@ -1,44 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import NotFoundView from "../components/NotFoundView.astro";
 import { getDictionary } from "../i18n";
 
-const t = getDictionary("pl").notFound;
+const plTitle = getDictionary("pl").notFound.metaTitle;
+const enTitle = getDictionary("en").notFound.metaTitle;
 ---
 
-<Layout lang="pl" noindex>
-  <main class="not-found">
-    <h1 class="not-found__title">{t.title}</h1>
-    <p class="not-found__text">{t.text}</p>
-    <a href="/" class="not-found__link">{t.back}</a>
-  </main>
+<Layout lang="pl" title={plTitle} noindex>
+  <div data-view="pl" style="display: contents">
+    <NotFoundView lang="pl" />
+  </div>
+  <template data-view="en" data-title={enTitle}>
+    <NotFoundView lang="en" />
+  </template>
+  <script is:inline>
+    (function () {
+      var template = document.querySelector('template[data-view="en"]');
+      var plView = document.querySelector('div[data-view="pl"]');
+      if (!template || !plView) return;
+      if (/^\/en(\/|$)/.test(location.pathname)) {
+        document.documentElement.lang = "en";
+        document.title = template.getAttribute("data-title") || document.title;
+        plView.remove();
+        template.replaceWith(template.content);
+      } else {
+        template.remove();
+      }
+    })();
+  </script>
 </Layout>
-
-<style lang="scss">
-  @use "../styles" as *;
-
-  .not-found {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-  }
-
-  .not-found__title {
-    margin-bottom: 1rem;
-    font-size: 2.25rem;
-    font-weight: 700;
-  }
-
-  .not-found__text {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    color: $muted-foreground;
-  }
-
-  .not-found__link {
-    color: $primary;
-    text-decoration: underline;
-  }
-</style>
