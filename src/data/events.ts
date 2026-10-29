@@ -43,16 +43,4 @@ export const events: EventItem[] = [
     },
     url: "https://www.facebook.com/profile.php?id=100038087425740",
   },
-  {
-    type: "conference",
-    title: {
-      pl: "XIV Congress of Therapeutic Horse Riding",
-      en: "XIV Congress of Therapeutic Horse Riding",
-    },
-    place: { pl: "Ateny", en: "Athens" },
-    description: {
-      pl: "Wykład: „The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”.",
-      en: "Lecture: “The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”.",
-    },
-  },
 ];

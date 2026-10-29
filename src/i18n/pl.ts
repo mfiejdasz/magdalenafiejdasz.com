@@ -64,7 +64,12 @@ export const pl = {
       moreLabel: "Zobacz więcej",
       moreItems: [
         "Wystąpienia na międzynarodowych konferencjach, m.in. XIV Congress of Therapeutic Horse Riding w Atenach – wykład „The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”",
-        "Organizacja i prowadzenie projektów z zakresu profilaktyki przemocy",
+        {
+          before: "Organizacja i prowadzenie projektów z zakresu profilaktyki przemocy, np. „Przemoc ma Twarz” dla Fundacji poDRUGIE oraz projekt „",
+          linkText: "Resocjalizacja przez merdanie | Kundellos",
+          after: "” dla Młodzieżowego Ośrodka Wychowawczego",
+          url: "https://kundellos.pl/2016/04/17/resocjalizacja-przez-merdanie/",
+        },
         "Organizacja wyjazdów dla młodzieży oraz tygodniowych warsztatów rozwojowych dla osób dorosłych",
         "Publikacje w prasie o tematyce psychologicznej",
       ],
@@ -109,8 +114,8 @@ export const pl = {
     eyebrow: "Artykuły",
     title: "Wybrane publikacje dotyczące mojej pracy",
     pressTitle: "W prasie i portalach",
-    scientificTitle: "Publikacje naukowe",
-    scientificLink: "Wszystkie publikacje w PTHIP",
+    journalTitle: "Czasopismo branżowe",
+    journalLink: "Wszystkie publikacje w PTHIP",
     openLabel: "Otwiera się w nowej karcie",
   },
   news: {
@@ -129,16 +134,14 @@ export const pl = {
     openLabel: "Otwiera się w nowej karcie",
   },
   contact: {
-    eyebrow: "Kontakt",
-    title: "Porozmawiajmy",
-    intro: "Napisz do mnie, odpowiem najszybciej, jak to możliwe.",
+    title: "Zapraszam do kontaktu",
     form: {
       name: "Imię i nazwisko",
       email: "E-mail",
       phone: "Telefon",
       optional: "opcjonalnie",
       message: "Wiadomość",
-      messagePlaceholder: "Napisz kilka słów o sobie i o tym, czego szukasz. Resztę omówimy w rozmowie.",
+      messagePlaceholder: "Napisz kilka zdań o sobie",
       consentBefore: "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na wiadomość, zgodnie z",
       consentLink: "Polityką prywatności",
       submit: "Wyślij wiadomość",

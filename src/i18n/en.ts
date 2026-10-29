@@ -66,7 +66,12 @@ export const en: Dictionary = {
       moreLabel: "See more",
       moreItems: [
         "Talks at international conferences, including the 14th Congress of Therapeutic Horse Riding in Athens – lecture “The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”",
-        "Organising and running violence prevention projects",
+        {
+          before: "Organising and running violence prevention projects, e.g. “Przemoc ma Twarz” for the poDRUGIE Foundation and the project “",
+          linkText: "Resocjalizacja przez merdanie | Kundellos",
+          after: "” for the Youth Educational Centre",
+          url: "https://kundellos.pl/2016/04/17/resocjalizacja-przez-merdanie/",
+        },
         "Organising trips for young people and week-long development workshops for adults",
         "Articles on psychological topics in the press",
       ],
@@ -111,8 +116,8 @@ export const en: Dictionary = {
     eyebrow: "Articles",
     title: "Selected publications about my work",
     pressTitle: "Press and online media",
-    scientificTitle: "Scientific publications",
-    scientificLink: "All publications at PTHIP",
+    journalTitle: "Trade journal",
+    journalLink: "All publications at PTHIP",
     openLabel: "Opens in a new tab",
   },
   news: {
@@ -131,16 +136,14 @@ export const en: Dictionary = {
     openLabel: "Opens in a new tab",
   },
   contact: {
-    eyebrow: "Contact",
-    title: "Let's talk",
-    intro: "Write to me and I will reply as soon as possible.",
+    title: "You are welcome to get in touch",
     form: {
       name: "Full name",
       email: "E-mail",
       phone: "Phone",
       optional: "optional",
       message: "Message",
-      messagePlaceholder: "Write a few words about yourself and what you are looking for. We will talk about the rest in a conversation.",
+      messagePlaceholder: "Write a few sentences about yourself",
       consentBefore: "I consent to the processing of my personal data in order to receive a reply to my message, in accordance with the",
       consentLink: "Privacy Policy",
       submit: "Send message",
