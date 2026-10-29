@@ -57,8 +57,8 @@ export const pl = {
       items: [
         "Prowadzenie psychoterapii indywidualnej dla osób dorosłych",
         "Prowadzenie grup wsparcia dla kobiet po doświadczeniu przemocy w rodzinie w Fundacji Mederi",
-        "Praca z nastolatkami z pieczy zastępczej (WCPR) – wsparcie indywidualne i grupowe, obozy terapeutyczne",
-        "Praca z młodzieżą z zaburzeniami zachowania (MOS, MOW, SOW) – socjoterapia, hipoterapia, dogoterapia, arteterapia i wildernesstherapy",
+        "Praca z nastolatkami z pieczy zastępczej w Warszawskim Centrum Pomocy Rodzinie – wsparcie indywidualne i grupowe, obozy terapeutyczne",
+        "Praca z młodzieżą z zaburzeniami zachowania (w Młodzieżowym Ośrodku Wychowawczym, Młodzieżowym Ośrodku Socjoterapii i Specjalnym Ośrodku Wychowawczym) – socjoterapia, hipoterapia, dogoterapia, arteterapia i wildernesstherapy",
         "Prowadzenie warsztatów i szkoleń, m.in. dla Uniwersytetu SWPS w Warszawie oraz Polskiego Towarzystwa Hipoterapeutycznego",
       ],
       moreLabel: "Zobacz więcej",

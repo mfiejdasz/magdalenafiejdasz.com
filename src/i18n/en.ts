@@ -59,8 +59,8 @@ export const en: Dictionary = {
       items: [
         "Individual psychotherapy for adults",
         "Support groups for women who have experienced domestic violence at the Mederi Foundation",
-        "Work with teenagers in foster care (WCPR) – individual and group support, therapeutic camps",
-        "Work with youth with behavioural disorders (MOS, MOW, SOW) – sociotherapy, hippotherapy, canine-assisted therapy, art therapy and wilderness therapy",
+        "Work with teenagers in foster care at the Warsaw Family Support Centre – individual and group support, therapeutic camps",
+        "Work with youth with behavioural disorders (in Youth Educational Centres, Youth Sociotherapy Centres and Special Educational Centres) – sociotherapy, hippotherapy, canine-assisted therapy, art therapy and wilderness therapy",
         "Workshops and trainings, including for SWPS University in Warsaw and the Polish Hippotherapy Society",
       ],
       moreLabel: "See more",
