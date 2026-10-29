@@ -23,7 +23,7 @@ export const pressArticles: Article[] = [
   },
 ];
 
-export const scientificPublications: Article[] = [
+export const journalPublications: Article[] = [
   {
     title: "Wpływ hipoterapii na poziom agresji wychowanków placówki resocjalizacyjnej",
     source: "Polskie Towarzystwo Hipoterapeutyczne",
@@ -41,4 +41,4 @@ export const scientificPublications: Article[] = [
   },
 ];
 
-export const scientificPublicationsUrl = "https://pthip.org.pl/oferta/publikacje";
+export const journalPublicationsUrl = "https://pthip.org.pl/oferta/publikacje";

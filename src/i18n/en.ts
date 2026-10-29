@@ -23,7 +23,10 @@ export const en: Dictionary = {
     eyebrow: "Psychotherapy online",
     titleLine: "I walk beside you",
     titleHighlight: "as you discover your own path",
-    text: "I follow your lead with curiosity and attentiveness, in a safe, friendly atmosphere. With one shared goal – improving your quality of life.",
+    paragraphs: [
+      "For me, psychotherapy is accompanying someone as they discover their own path, sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes. As many paths, so many stories and needs.",
+      "As a psychotherapist, I follow the client along this path, with curiosity and attentiveness, in a safe, friendly atmosphere, with one shared goal – improving quality of life.",
+    ],
     cta: "Write to me",
     more: "Learn more",
   },
@@ -56,22 +59,26 @@ export const en: Dictionary = {
       items: [
         "Individual psychotherapy for adults",
         "Support groups for women who have experienced domestic violence at the Mederi Foundation",
-        "Work with teenagers in foster care (WCPR) – individual and group support, therapeutic camps",
-        "Work with youth with behavioural disorders (MOS, MOW, SOW) – sociotherapy, hippotherapy, canine-assisted therapy, art therapy and wilderness therapy",
+        "Work with teenagers in foster care at the Warsaw Family Support Centre – individual and group support, therapeutic camps",
+        "Work with youth with behavioural disorders (in Youth Educational Centres, Youth Sociotherapy Centres and Special Educational Centres) – sociotherapy, hippotherapy, canine-assisted therapy, art therapy and wilderness therapy",
         "Workshops and trainings, including for SWPS University in Warsaw and the Polish Hippotherapy Society",
       ],
       moreLabel: "See more",
       moreItems: [
         "Talks at international conferences, including the 14th Congress of Therapeutic Horse Riding in Athens – lecture “The influence of hippotherapy on emotional response and behaviour of under-aged in Youth Borstal”",
-        "Organising and running violence prevention projects",
+        {
+          before: "Organising and running violence prevention projects, e.g. “Przemoc ma Twarz” for the poDRUGIE Foundation and the project “",
+          linkText: "Resocjalizacja przez merdanie | Kundellos",
+          after: "” for the Youth Educational Centre",
+          url: "https://kundellos.pl/2016/04/17/resocjalizacja-przez-merdanie/",
+        },
         "Organising trips for young people and week-long development workshops for adults",
         "Articles on psychological topics in the press",
       ],
     },
   },
   services: {
-    eyebrow: "Services",
-    title: "How can I help you?",
+    title: "Services",
     intro: "I invite people who:",
     items: [
       {
@@ -107,11 +114,10 @@ export const en: Dictionary = {
   },
   articles: {
     eyebrow: "Articles",
-    title: "Selected publications",
-    intro: "Texts I have written about psychology, working with young people and the role of nature in recovery. The articles are in Polish.",
+    title: "Selected publications about my work",
     pressTitle: "Press and online media",
-    scientificTitle: "Scientific publications",
-    scientificLink: "All publications at PTHIP",
+    journalTitle: "Trade journal",
+    journalLink: "All publications at PTHIP",
     openLabel: "Opens in a new tab",
   },
   news: {
@@ -130,16 +136,14 @@ export const en: Dictionary = {
     openLabel: "Opens in a new tab",
   },
   contact: {
-    eyebrow: "Contact",
-    title: "Let's talk",
-    intro: "Write to me and I will reply as soon as possible.",
+    title: "You are welcome to get in touch",
     form: {
       name: "Full name",
       email: "E-mail",
       phone: "Phone",
       optional: "optional",
       message: "Message",
-      messagePlaceholder: "Write a few words about yourself and what you are looking for. We will talk about the rest in a conversation.",
+      messagePlaceholder: "Write a few sentences about yourself",
       consentBefore: "I consent to the processing of my personal data in order to receive a reply to my message, in accordance with the",
       consentLink: "Privacy Policy",
       submit: "Send message",

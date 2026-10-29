@@ -8,7 +8,9 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const t = getDictionary(lang).about;
+const dictionary = getDictionary(lang);
+const t = dictionary.about;
+const openLabel = dictionary.articles.openLabel;
 ---
 
 <section id="about" class="about">
@@ -57,7 +59,17 @@ const t = getDictionary(lang).about;
         <details class="about__more">
           <summary>{t.experience.moreLabel}</summary>
           <ul class="about__list">
-            {t.experience.moreItems.map((item) => <li>{item}</li>)}
+            {
+              t.experience.moreItems.map((item) =>
+                typeof item === "string" ? (
+                  <li>{item}</li>
+                ) : (
+                  <li>
+                    {item.before}<a class="about__link" href={item.url} target="_blank" rel="noopener noreferrer">{item.linkText}<span class="sr-only"> ({openLabel})</span></a>{item.after}
+                  </li>
+                )
+              )
+            }
           </ul>
         </details>
       </div>
@@ -94,6 +106,9 @@ const t = getDictionary(lang).about;
   .about__media {
     position: relative;
     isolation: isolate;
+    justify-self: center;
+    width: 100%;
+    max-width: 27rem;
   }
 
   .about__photo {
@@ -220,6 +235,17 @@ const t = getDictionary(lang).about;
         border-radius: 50%;
         background: $primary;
       }
+    }
+  }
+
+  .about__link {
+    color: $primary;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $hover-foreground;
     }
   }
 

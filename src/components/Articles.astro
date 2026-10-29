@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import SectionHeader from "./SectionHeader.astro";
 import { getDictionary, type Lang } from "../i18n";
-import { pressArticles, scientificPublications, scientificPublicationsUrl } from "../data/articles";
+import { pressArticles, journalPublications, journalPublicationsUrl } from "../data/articles";
 
 interface Props {
   lang: Lang;
@@ -14,18 +14,18 @@ const t = getDictionary(lang).articles;
 const groups = [
   { title: t.pressTitle, icon: "lucide:newspaper", items: pressArticles },
   {
-    title: t.scientificTitle,
-    icon: "lucide:graduation-cap",
-    items: scientificPublications,
-    moreUrl: scientificPublicationsUrl,
-    moreLabel: t.scientificLink,
+    title: t.journalTitle,
+    icon: "lucide:book-open",
+    items: journalPublications,
+    moreUrl: journalPublicationsUrl,
+    moreLabel: t.journalLink,
   },
 ];
 ---
 
 <section id="articles" class="articles">
   <div class="articles__container">
-    <SectionHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
+    <SectionHeader eyebrow={t.eyebrow} title={t.title} />
 
     <div class="articles__grid">
       {
@@ -200,7 +200,7 @@ const groups = [
     transition: color 0.2s;
 
     &:hover {
-      color: $accent-foreground;
+      color: $hover-foreground;
     }
   }
 </style>

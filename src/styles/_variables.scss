@@ -1,15 +1,17 @@
-@use "sass:color";
+$background: var(--background);
+$foreground: var(--foreground);
+$card: var(--card);
+$secondary: var(--secondary);
+$muted-foreground: var(--muted-foreground);
+$accent: var(--accent);
+$accent-foreground: var(--accent-foreground);
+$border: var(--border);
 
-$background: hsl(40, 20%, 98%);
-$foreground: hsl(220, 15%, 20%);
-$card: hsl(40, 20%, 99%);
-$primary: hsl(153, 25%, 45%);
+$primary: hsl(153, 28%, 38%);
 $primary-foreground: hsl(0, 0%, 100%);
-$secondary: hsl(150, 15%, 92%);
-$muted-foreground: hsl(220, 10%, 50%);
-$accent: hsl(153, 20%, 88%);
-$accent-foreground: hsl(153, 30%, 30%);
-$border: hsl(40, 15%, 90%);
+$hover: hsl(153, 20%, 88%);
+$hover-foreground: hsl(153, 30%, 30%);
+$lilac: hsl(275, 28%, 45%);
 
 $radius-sm: 0.75rem;
 $radius-md: 1rem;
@@ -30,5 +32,5 @@ $breakpoints: (
 $navbar-height: 4rem;
 
 @function with-alpha($value, $alpha) {
-  @return color.change($value, $alpha: $alpha);
+  @return unquote("color-mix(in srgb, #{$value} #{$alpha * 100%}, transparent)");
 }
