@@ -21,7 +21,10 @@ export const pl = {
     eyebrow: "Psychoterapia online",
     titleLine: "Towarzyszę Ci",
     titleHighlight: "w odkrywaniu własnej drogi",
-    text: "Podążam za Tobą z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze. Z jednym wspólnym celem – poprawą komfortu życia.",
+    paragraphs: [
+      "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi, czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian. Ile dróg, tyle historii i potrzeb.",
+      "Jako psychoterapeutka podążam za klientem wzdłuż tej drogi, z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze, z jednym wspólnym celem – poprawą komfortu życia.",
+    ],
     cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
   },

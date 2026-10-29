@@ -23,7 +23,10 @@ export const en: Dictionary = {
     eyebrow: "Psychotherapy online",
     titleLine: "I walk beside you",
     titleHighlight: "as you discover your own path",
-    text: "I follow your lead with curiosity and attentiveness, in a safe, friendly atmosphere. With one shared goal – improving your quality of life.",
+    paragraphs: [
+      "For me, psychotherapy is accompanying someone as they discover their own path, sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes. As many paths, so many stories and needs.",
+      "As a psychotherapist, I follow the client along this path, with curiosity and attentiveness, in a safe, friendly atmosphere, with one shared goal – improving quality of life.",
+    ],
     cta: "Write to me",
     more: "Learn more",
   },
