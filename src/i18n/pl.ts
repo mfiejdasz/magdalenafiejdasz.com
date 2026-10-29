@@ -71,8 +71,7 @@ export const pl = {
     },
   },
   services: {
-    eyebrow: "Oferta",
-    title: "Jak mogę Ci pomóc?",
+    title: "Oferta",
     intro: "Zapraszam osoby, które:",
     items: [
       {

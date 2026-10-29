@@ -73,8 +73,7 @@ export const en: Dictionary = {
     },
   },
   services: {
-    eyebrow: "Services",
-    title: "How can I help you?",
+    title: "Services",
     intro: "I invite people who:",
     items: [
       {
