@@ -1,4 +1,13 @@
 @use "./index" as *;
+@use "./themes" as *;
+
+:root {
+  @include theme-mustard;
+}
+
+:root[data-theme="lilac"] {
+  @include theme-lilac;
+}
 
 *,
 *::before,

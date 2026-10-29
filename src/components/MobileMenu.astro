@@ -1,6 +1,7 @@
 ---
 import { getDictionary, getOtherLang, type Lang } from "../i18n";
 import type { NavLink } from "../types";
+import ThemeToggle from "./ThemeToggle.astro";
 
 interface Props {
   id: string;
@@ -34,6 +35,7 @@ const otherLang = getOtherLang(lang);
       >
         {t.text}
       </a>
+      <ThemeToggle variant="mobile" />
     </div>
   </div>
 </div>
@@ -119,8 +121,8 @@ const otherLang = getOtherLang(lang);
     color: $muted-foreground;
 
     &:hover {
-      background: $accent;
-      color: $accent-foreground;
+      background: $hover;
+      color: $hover-foreground;
     }
   }
 
