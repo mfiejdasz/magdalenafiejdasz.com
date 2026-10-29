@@ -107,8 +107,7 @@ export const pl = {
   },
   articles: {
     eyebrow: "Artykuły",
-    title: "Wybrane publikacje",
-    intro: "Teksty, które napisałam o psychologii, pracy z młodzieżą i roli natury w procesie zdrowienia.",
+    title: "Wybrane publikacje dotyczące mojej pracy",
     pressTitle: "W prasie i portalach",
     scientificTitle: "Publikacje naukowe",
     scientificLink: "Wszystkie publikacje w PTHIP",

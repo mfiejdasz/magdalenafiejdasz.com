@@ -109,8 +109,7 @@ export const en: Dictionary = {
   },
   articles: {
     eyebrow: "Articles",
-    title: "Selected publications",
-    intro: "Texts I have written about psychology, working with young people and the role of nature in recovery. The articles are in Polish.",
+    title: "Selected publications about my work",
     pressTitle: "Press and online media",
     scientificTitle: "Scientific publications",
     scientificLink: "All publications at PTHIP",
