@@ -16,11 +16,17 @@ const openLabel = dictionary.articles.openLabel;
 <section id="about" class="about">
   <div class="about__container">
     <div class="about__grid">
-      <div class="about__media">
-        <div class="about__photo">
-          <Image src={therapistImg} alt={t.imageAlt} widths={[480, 800]} sizes="(min-width: 768px) 45vw, 100vw" loading="lazy" />
+      <div class="about__media-col">
+        <div class="about__media" data-photo-media>
+          <div class="about__photo">
+            <Image src={therapistImg} alt={t.imageAlt} widths={[480, 800]} sizes="(min-width: 768px) 45vw, 100vw" loading="lazy" />
+          </div>
+          <span class="about__decor"></span>
         </div>
-        <span class="about__decor"></span>
+        <label class="about__photo-control">
+          <span>Rozmiar zdjęcia: <output data-photo-output>100%</output></span>
+          <input type="range" min="40" max="100" step="5" value="100" data-photo-range />
+        </label>
       </div>
 
       <div>
@@ -77,6 +83,19 @@ const openLabel = dictionary.articles.openLabel;
   </div>
 </section>
 
+<script>
+  const media = document.querySelector<HTMLElement>("[data-photo-media]");
+  const range = document.querySelector<HTMLInputElement>("[data-photo-range]");
+  const output = document.querySelector<HTMLOutputElement>("[data-photo-output]");
+
+  if (media && range && output) {
+    range.addEventListener("input", () => {
+      media.style.setProperty("--photo-scale", String(Number(range.value) / 100));
+      output.textContent = `${range.value}%`;
+    });
+  }
+</script>
+
 <style lang="scss">
   @use "../styles" as *;
 
@@ -103,12 +122,36 @@ const openLabel = dictionary.articles.openLabel;
     }
   }
 
-  .about__media {
-    position: relative;
-    isolation: isolate;
+  .about__media-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     justify-self: center;
     width: 100%;
     max-width: 27rem;
+  }
+
+  .about__media {
+    position: relative;
+    isolation: isolate;
+    width: calc(var(--photo-scale, 1) * 100%);
+  }
+
+  .about__photo-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 14rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $muted-foreground;
+
+    input {
+      width: 100%;
+      accent-color: $primary;
+    }
   }
 
   .about__photo {

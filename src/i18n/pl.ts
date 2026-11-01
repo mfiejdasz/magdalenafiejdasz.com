@@ -50,6 +50,7 @@ export const pl = {
         "Pedagogika resocjalizacyjna na Akademii Pedagogiki Specjalnej w Warszawie",
         "Kurs instruktora rekreacji ruchowej ze specjalnością hipoterapia (członkini Polskiego Towarzystwa Hipoterapeutycznego)",
         "Kurs dogoterapii",
+        "Regularne uczestniczenie w szkoleniach specjalistycznych",
       ],
     },
     experience: {
@@ -123,7 +124,7 @@ export const pl = {
     title: "Szkolenia i wydarzenia",
     intro: "Warsztaty, wyjazdy i konferencje, w których uczestniczę lub które prowadzę.",
     upcomingTitle: "Nadchodzące",
-    pastTitle: "Odbyte",
+    pastTitle: "Zrealizowane",
     types: {
       retreat: "Wyjazd rozwojowy",
       conference: "Konferencja",
