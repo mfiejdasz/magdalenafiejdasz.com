@@ -1,8 +1,6 @@
 ---
 import { getDictionary, getOtherLang, type Lang } from "../i18n";
 import type { NavLink } from "../types";
-import ThemeToggle from "./ThemeToggle.astro";
-
 interface Props {
   id: string;
   lang: Lang;
@@ -35,7 +33,6 @@ const otherLang = getOtherLang(lang);
       >
         {t.text}
       </a>
-      <ThemeToggle variant="mobile" />
     </div>
   </div>
 </div>

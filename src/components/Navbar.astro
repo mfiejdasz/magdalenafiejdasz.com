@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import MenuToggle from "./MenuToggle.astro";
 import MobileMenu from "./MobileMenu.astro";
-import ThemeToggle from "./ThemeToggle.astro";
 import logo from "../assets/logo.png";
 import { getDictionary, getHomePath, getOtherLang, type Lang } from "../i18n";
 import { siteConfig } from "../config";
@@ -43,18 +42,15 @@ const links: NavLink[] = [
 
     <div class="navbar__desktop">
       {links.map((link) => <a href={link.href} class="navbar__link">{link.label}</a>)}
-      <div class="navbar__actions">
-        <a
-          href={langHref}
-          class="navbar__lang"
-          hreflang={otherLang}
-          lang={otherLang}
-          aria-label={t.languageSwitch.label}
-        >
-          {t.languageSwitch.text}
-        </a>
-        <ThemeToggle />
-      </div>
+      <a
+        href={langHref}
+        class="navbar__lang"
+        hreflang={otherLang}
+        lang={otherLang}
+        aria-label={t.languageSwitch.label}
+      >
+        {t.languageSwitch.text}
+      </a>
     </div>
 
     <MenuToggle label={t.nav.menu} controls={menuId} />
@@ -139,15 +135,10 @@ const links: NavLink[] = [
   .navbar__desktop {
     display: none;
     align-items: center;
-    gap: 0.75rem;
-    margin-left: 1rem;
+    gap: 2rem;
 
     @include up(md) {
       display: flex;
-    }
-
-    @include up(lg) {
-      gap: 2rem;
     }
   }
 
@@ -155,13 +146,9 @@ const links: NavLink[] = [
     position: relative;
     padding-block: 0.25rem;
     white-space: nowrap;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: $muted-foreground;
     transition: color 0.25s;
-
-    @include up(lg) {
-      font-size: 0.875rem;
-    }
 
     &::after {
       content: "";
@@ -190,12 +177,6 @@ const links: NavLink[] = [
         transition-duration: 0s;
       }
     }
-  }
-
-  .navbar__actions {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 
   .navbar__lang {
