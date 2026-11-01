@@ -52,6 +52,7 @@ export const en: Dictionary = {
         "Social rehabilitation pedagogy at the Maria Grzegorzewska University in Warsaw",
         "Movement recreation instructor course with a specialisation in hippotherapy (member of the Polish Hippotherapy Society)",
         "Canine-assisted therapy course",
+        "Regular participation in specialist trainings",
       ],
     },
     experience: {
@@ -125,7 +126,7 @@ export const en: Dictionary = {
     title: "Training and events",
     intro: "Workshops, retreats and conferences I take part in or lead.",
     upcomingTitle: "Upcoming",
-    pastTitle: "Past",
+    pastTitle: "Completed",
     types: {
       retreat: "Retreat",
       conference: "Conference",
