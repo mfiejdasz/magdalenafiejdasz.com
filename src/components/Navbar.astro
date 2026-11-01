@@ -32,7 +32,7 @@ const links: NavLink[] = [
   <div class="navbar__inner">
     <a href={getHomePath(lang)} class="navbar__brand">
       <span class="navbar__logo">
-        <Image src={logo} alt="" width={96} loading="eager" />
+        <Image src={logo} alt="" width={160} loading="eager" />
       </span>
       <span class="navbar__brand-text">
         <span class="navbar__brand-name">{siteConfig.name}</span>
@@ -104,7 +104,7 @@ const links: NavLink[] = [
 
     :global(img) {
       width: auto;
-      height: 3.25rem;
+      height: 3.5rem;
     }
   }
 
@@ -135,10 +135,15 @@ const links: NavLink[] = [
   .navbar__desktop {
     display: none;
     align-items: center;
-    gap: 2rem;
+    gap: 1.25rem;
+    margin-left: 1rem;
 
     @include up(md) {
       display: flex;
+    }
+
+    @include up(lg) {
+      gap: 2rem;
     }
   }
 
