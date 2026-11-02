@@ -2,22 +2,8 @@
 import { Image } from "astro:assets";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
-import bg1 from "../assets/1.jpg";
-import bg2 from "../assets/2.jpg";
-import bg3 from "../assets/3.jpg";
-import bg4 from "../assets/4.jpg";
-import bg5 from "../assets/5.jpg";
-import bg6 from "../assets/6.jpg";
+import contactBg from "../assets/contact-bg.jpg";
 import { getDictionary, getPrivacyPath, type Lang } from "../i18n";
-
-const backgrounds = [
-  { src: bg1, position: "50% 50%" },
-  { src: bg2, position: "50% 50%" },
-  { src: bg3, position: "50% 50%" },
-  { src: bg4, position: "35% 40%" },
-  { src: bg5, position: "45% 35%" },
-  { src: bg6, position: "30% 55%" },
-];
 
 interface Props {
   lang: Lang;
@@ -28,25 +14,10 @@ const t = getDictionary(lang).contact;
 ---
 
 <section id="contact" class="contact">
-  <div class="contact__bg" aria-hidden="true" data-contact-bg>
-    {
-      backgrounds.map((background, index) => (
-        <Image
-          src={background.src}
-          alt=""
-          widths={[960, 1600, 2200]}
-          sizes="100vw"
-          loading="lazy"
-          hidden={index !== 0}
-          style={`object-position: ${background.position}`}
-        />
-      ))
-    }
+  <div class="contact__bg" aria-hidden="true">
+    <Image src={contactBg} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="lazy" />
   </div>
   <div class="contact__overlay"></div>
-  <button type="button" class="contact__bg-toggle" data-contact-bg-toggle aria-label="Zmień tło sekcji">
-    Tło: 1 / 6
-  </button>
   <div class="contact__container">
     <SectionHeader title={t.title} />
 
@@ -96,25 +67,6 @@ const t = getDictionary(lang).contact;
   </div>
 </section>
 
-<script>
-  const wrapper = document.querySelector<HTMLElement>("[data-contact-bg]");
-  const button = document.querySelector<HTMLButtonElement>("[data-contact-bg-toggle]");
-
-  if (wrapper && button) {
-    const images = Array.from(wrapper.querySelectorAll<HTMLImageElement>("img"));
-    const total = images.length;
-    let index = 0;
-
-    button.addEventListener("click", () => {
-      index = (index + 1) % (total + 1);
-      images.forEach((image, imageIndex) => {
-        image.hidden = imageIndex !== index;
-      });
-      button.textContent = index === total ? "Tło: brak" : `Tło: ${index + 1} / ${total}`;
-    });
-  }
-</script>
-
 <style lang="scss">
   @use "../styles" as *;
 
@@ -139,10 +91,6 @@ const t = getDictionary(lang).contact;
       height: 100%;
       object-fit: cover;
     }
-
-    :global(img[hidden]) {
-      display: none;
-    }
   }
 
   .contact__overlay {
@@ -151,28 +99,6 @@ const t = getDictionary(lang).contact;
     z-index: -1;
     background: with-alpha($background, 0.55);
     backdrop-filter: blur(2px);
-  }
-
-  .contact__bg-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    padding: 0.375rem 0.875rem;
-    border: 1px solid $border;
-    border-radius: $radius-sm;
-    background: $card;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: $muted-foreground;
-    transition:
-      background 0.2s,
-      color 0.2s;
-
-    &:hover {
-      background: $hover;
-      color: $hover-foreground;
-    }
   }
 
   .contact__container {
