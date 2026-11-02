@@ -88,8 +88,8 @@ export const pl = {
     },
   },
   services: {
-    title: "Oferta",
-    intro: "Zapraszam osoby, które:",
+    eyebrow: "Oferta",
+    title: "Zapraszam osoby, które:",
     items: [
       {
         title: "Kryzys i trudne emocje",

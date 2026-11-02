@@ -90,8 +90,8 @@ export const en: Dictionary = {
     },
   },
   services: {
-    title: "Services",
-    intro: "I invite people who:",
+    eyebrow: "Services",
+    title: "I invite people who:",
     items: [
       {
         title: "Crisis and difficult emotions",
