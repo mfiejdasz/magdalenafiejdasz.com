@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import SectionHeader from "./SectionHeader.astro";
 import Button from "./Button.astro";
-import contactBg from "../assets/contact-bg.jpg";
+import contactBg from "../assets/contact-bg.webp";
 import { getDictionary, getPrivacyPath, type Lang } from "../i18n";
 
 interface Props {
@@ -15,7 +15,7 @@ const t = getDictionary(lang).contact;
 
 <section id="contact" class="contact">
   <div class="contact__bg" aria-hidden="true">
-    <Image src={contactBg} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="lazy" />
+    <Image src={contactBg} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="eager" fetchpriority="low" decoding="async" />
   </div>
   <div class="contact__overlay"></div>
   <div class="contact__container">

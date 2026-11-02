@@ -13,6 +13,10 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
+  photoBand: {
+    shown: "Pas ze zdjęciem: widoczny",
+    hidden: "Pas ze zdjęciem: ukryty",
+  },
   languageSwitch: {
     text: "EN",
     label: "English version",
@@ -84,8 +88,8 @@ export const pl = {
     },
   },
   services: {
-    title: "Oferta",
-    intro: "Zapraszam osoby, które:",
+    eyebrow: "Oferta",
+    title: "Zapraszam osoby, które:",
     items: [
       {
         title: "Kryzys i trudne emocje",

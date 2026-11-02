@@ -15,6 +15,10 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
+  photoBand: {
+    shown: "Photo band: shown",
+    hidden: "Photo band: hidden",
+  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",
@@ -86,8 +90,8 @@ export const en: Dictionary = {
     },
   },
   services: {
-    title: "Services",
-    intro: "I invite people who:",
+    eyebrow: "Services",
+    title: "I invite people who:",
     items: [
       {
         title: "Crisis and difficult emotions",
