@@ -22,7 +22,6 @@ const t = getDictionary(lang).hero;
 
   <div class="hero__content">
     <div class="hero__inner">
-      <p class="hero__eyebrow">{t.eyebrow}</p>
       <h1 class="sr-only" data-v="1">{t.titleLine} {t.titleHighlight}</h1>
       <h1 class="hero__title" data-v="2">{t.sentenceTitle}</h1>
       <h1 class="hero__title" data-v="3">{t.wordTitle}</h1>
@@ -136,11 +135,6 @@ const t = getDictionary(lang).hero;
 
   .hero__inner {
     max-width: 42rem;
-  }
-
-  .hero__eyebrow {
-    @include eyebrow;
-    margin-bottom: 1rem;
   }
 
   .hero__title {

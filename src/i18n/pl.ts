@@ -18,7 +18,6 @@ export const pl = {
     label: "English version",
   },
   hero: {
-    eyebrow: "Psychoterapia online",
     titleLine: "Towarzyszę Ci",
     titleHighlight: "w odkrywaniu własnej drogi",
     paragraphs: [

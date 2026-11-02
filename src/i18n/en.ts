@@ -20,7 +20,6 @@ export const en: Dictionary = {
     label: "Wersja polska",
   },
   hero: {
-    eyebrow: "Psychotherapy online",
     titleLine: "I walk beside you",
     titleHighlight: "as you discover your own path",
     paragraphs: [
