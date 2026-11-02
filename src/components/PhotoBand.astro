@@ -12,7 +12,7 @@ const t = getDictionary(lang).photoBand;
 ---
 
 <div class="photo-band" data-photo-band aria-hidden="true">
-  <Image src={bandImage} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="eager" decoding="async" />
+  <Image src={bandImage} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="eager" fetchpriority="low" decoding="async" />
 </div>
 
 <button type="button" class="photo-band-switch" data-photo-band-switch data-shown={t.shown} data-hidden={t.hidden}>
