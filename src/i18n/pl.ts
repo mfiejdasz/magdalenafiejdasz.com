@@ -13,6 +13,10 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
+  photoBand: {
+    shown: "Pas ze zdjęciem: widoczny",
+    hidden: "Pas ze zdjęciem: ukryty",
+  },
   languageSwitch: {
     text: "EN",
     label: "English version",

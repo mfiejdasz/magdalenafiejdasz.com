@@ -15,6 +15,10 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
+  photoBand: {
+    shown: "Photo band: shown",
+    hidden: "Photo band: hidden",
+  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",
