@@ -27,6 +27,14 @@ export const pl = {
     ],
     cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
+    variantLabel: "Wariant nagłówka",
+    sentenceTitle: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi",
+    sentenceText:
+      "czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
+    wordTitle: "Psychoterapia",
+    wordText:
+      "jest dla mnie towarzyszeniem w odkrywaniu własnej drogi, czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
+    emphasis: "Ile dróg, tyle historii i potrzeb.",
   },
   about: {
     eyebrow: "O mnie",

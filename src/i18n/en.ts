@@ -29,6 +29,14 @@ export const en: Dictionary = {
     ],
     cta: "Write to me",
     more: "Learn more",
+    variantLabel: "Heading variant",
+    sentenceTitle: "For me, psychotherapy is accompanying someone as they discover their own path",
+    sentenceText:
+      "sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
+    wordTitle: "Psychotherapy",
+    wordText:
+      "For me, it is accompanying someone as they discover their own path, sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
+    emphasis: "As many paths, so many stories and needs.",
   },
   about: {
     eyebrow: "About me",
