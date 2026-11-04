@@ -15,12 +15,6 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
-  preview: {
-    bandLabel: "Photo band",
-    bandOptions: ["flowers", "plums", "none"],
-    backgroundLabel: "Plum background",
-    backgroundOptions: ["none", "from “About me”", "from “Education”"],
-  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",

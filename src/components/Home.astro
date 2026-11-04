@@ -3,9 +3,7 @@ import Navbar from "./Navbar.astro";
 import Hero from "./Hero.astro";
 import About from "./About.astro";
 import Services from "./Services.astro";
-import PhotoBand from "./PhotoBand.astro";
 import PlumZone from "./PlumZone.astro";
-import PreviewControls from "./PreviewControls.astro";
 import Articles from "./Articles.astro";
 import News from "./News.astro";
 import Contact from "./Contact.astro";
@@ -25,11 +23,9 @@ const { lang } = Astro.props;
   <PlumZone>
     <About lang={lang} />
     <Services lang={lang} />
-    <PhotoBand />
     <Articles lang={lang} />
     <News lang={lang} />
     <Contact lang={lang} />
   </PlumZone>
 </main>
 <Footer lang={lang} />
-<PreviewControls lang={lang} />
