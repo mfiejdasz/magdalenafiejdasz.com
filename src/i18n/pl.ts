@@ -13,12 +13,6 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
-  preview: {
-    bandLabel: "Pas ze zdjęciem",
-    bandOptions: ["kwiaty", "śliwki", "brak"],
-    backgroundLabel: "Tło ze śliwkami",
-    backgroundOptions: ["brak", "od „O mnie”", "od „Wykształcenia”"],
-  },
   languageSwitch: {
     text: "EN",
     label: "English version",

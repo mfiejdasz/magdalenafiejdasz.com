@@ -42,11 +42,7 @@ const openLabel = dictionary.articles.openLabel;
         </dl>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="about-details">
-  <div class="about-details__container">
     <div class="about__details">
       <div class="about__card">
         <h3 class="about__card-title">{t.education.title}</h3>
@@ -86,18 +82,9 @@ const openLabel = dictionary.articles.openLabel;
 
   .about {
     @include section-padding;
-    padding-bottom: 0;
-    background: $background;
   }
 
-  .about-details {
-    @include section-padding;
-    padding-top: 4rem;
-    background: $background;
-  }
-
-  .about__container,
-  .about-details__container {
+  .about__container {
     @include container;
   }
 
@@ -200,6 +187,7 @@ const openLabel = dictionary.articles.openLabel;
   .about__details {
     display: grid;
     gap: 2rem;
+    margin-top: 4rem;
 
     @include up(md) {
       grid-template-columns: repeat(2, minmax(0, 1fr));

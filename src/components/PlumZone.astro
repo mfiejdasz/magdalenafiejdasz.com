@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import plumsImage from "../assets/contact-bg.webp";
 ---
 
-<div class="plum-zone" data-plum-zone data-mode="off">
+<div class="plum-zone">
   <div class="plum-zone__bg" aria-hidden="true">
     <Image
       src={plumsImage}
@@ -48,20 +48,5 @@ import plumsImage from "../assets/contact-bg.webp";
     z-index: -1;
     background: with-alpha($background, 0.8);
     backdrop-filter: blur(3px);
-  }
-
-  .plum-zone[data-mode="off"] {
-    .plum-zone__bg,
-    .plum-zone__veil {
-      display: none;
-    }
-  }
-
-  :global(.plum-zone:not([data-mode="off"]) > section) {
-    background: transparent;
-  }
-
-  :global(.plum-zone[data-mode="education"] > #about) {
-    background: $background;
   }
 </style>
