@@ -1,44 +1,49 @@
 ---
 import { Image } from "astro:assets";
-import bandImage from "../assets/2.jpg";
-import { getDictionary, type Lang } from "../i18n";
-
-interface Props {
-  lang: Lang;
-}
-
-const { lang } = Astro.props;
-const t = getDictionary(lang).photoBand;
+import flowersImage from "../assets/2.jpg";
+import plumsImage from "../assets/contact-bg.webp";
 ---
 
-<div class="photo-band" data-photo-band aria-hidden="true">
-  <Image src={bandImage} alt="" widths={[960, 1600, 2200]} sizes="100vw" loading="eager" fetchpriority="low" decoding="async" />
+<div class="photo-band" data-photo-band data-state="flowers" aria-hidden="true">
+  <Image
+    src={flowersImage}
+    alt=""
+    data-band-image="flowers"
+    widths={[960, 1600, 2200]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="low"
+    decoding="async"
+  />
+  <Image
+    src={plumsImage}
+    alt=""
+    data-band-image="plums"
+    widths={[960, 1600, 2200]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="low"
+    decoding="async"
+  />
 </div>
 
-<button type="button" class="photo-band-switch" data-photo-band-switch data-shown={t.shown} data-hidden={t.hidden}>
-  {t.shown}
-</button>
-
-<script>
-  const band = document.querySelector<HTMLElement>("[data-photo-band]");
-  const button = document.querySelector<HTMLButtonElement>("[data-photo-band-switch]");
-  button?.addEventListener("click", () => {
-    if (!band) return;
-    band.hidden = !band.hidden;
-    button.textContent = band.hidden ? (button.dataset.hidden ?? "") : (button.dataset.shown ?? "");
-  });
-</script>
-
 <style lang="scss">
-  @use "../styles" as *;
-
   .photo-band {
     position: relative;
     height: 40vh;
     min-height: 14rem;
     clip-path: inset(0);
 
-    &[hidden] {
+    &[data-state="off"] {
+      display: none;
+    }
+
+    &[data-state="flowers"] :global(img[data-band-image="plums"]),
+    &[data-state="plums"] :global(img[data-band-image="flowers"]) {
+      display: none;
+    }
+
+    :global(.plum-zone:not([data-mode="off"])) & {
       display: none;
     }
 
@@ -49,21 +54,5 @@ const t = getDictionary(lang).photoBand;
       height: 100%;
       object-fit: cover;
     }
-  }
-
-  .photo-band-switch {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 50;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: $primary;
-    background: with-alpha($card, 0.95);
-    border: 1px solid $border;
-    border-radius: 999px;
-    box-shadow: $shadow-card;
-    cursor: pointer;
   }
 </style>

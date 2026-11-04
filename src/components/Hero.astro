@@ -11,10 +11,7 @@ const { lang } = Astro.props;
 const t = getDictionary(lang).hero;
 ---
 
-<section class="hero" data-variant="1">
-  <button type="button" class="hero__switch" data-hero-switch>
-    {t.variantLabel}: <span data-hero-switch-value>1</span>/3
-  </button>
+<section class="hero">
   <div class="hero__bg">
     <Image src={heroBg} alt="" loading="eager" fetchpriority="high" widths={[800, 1280, 1920]} sizes="100vw" />
   </div>
@@ -22,14 +19,10 @@ const t = getDictionary(lang).hero;
 
   <div class="hero__content">
     <div class="hero__inner">
-      <h1 class="sr-only" data-v="1">{t.titleLine} {t.titleHighlight}</h1>
-      <h1 class="hero__title" data-v="2">{t.sentenceTitle}</h1>
-      <h1 class="hero__title" data-v="3">{t.wordTitle}</h1>
+      <h1 class="hero__title">{t.title}</h1>
       <div class="hero__text">
-        <p data-v="1">{t.paragraphs[0]}</p>
-        <p data-v="2">{t.sentenceText} {t.emphasis}</p>
-        <p data-v="3">{t.wordText} <strong class="hero__emphasis">{t.emphasis}</strong></p>
-        <p>{t.paragraphs[1]}</p>
+        <p>{t.intro} <strong class="hero__emphasis">{t.emphasis}</strong></p>
+        <p>{t.closing}</p>
       </div>
       <div class="hero__actions">
         <Button href="#contact" size="xl">{t.cta}</Button>
@@ -38,18 +31,6 @@ const t = getDictionary(lang).hero;
     </div>
   </div>
 </section>
-
-<script>
-  document.querySelectorAll<HTMLElement>(".hero").forEach((hero) => {
-    const button = hero.querySelector<HTMLButtonElement>("[data-hero-switch]");
-    const value = hero.querySelector<HTMLElement>("[data-hero-switch-value]");
-    button?.addEventListener("click", () => {
-      const next = (Number(hero.dataset.variant) % 3) + 1;
-      hero.dataset.variant = String(next);
-      if (value) value.textContent = String(next);
-    });
-  });
-</script>
 
 <style lang="scss">
   @use "sass:color";
@@ -102,7 +83,7 @@ const t = getDictionary(lang).hero;
 
     @include up(lg) {
       inset: 0 auto 0 0;
-      width: calc(max(0px, (100% - 72rem) / 2) + 6rem + 38rem + 8rem);
+      width: calc(max(0px, (100% - 75rem) / 2) + 1.5rem + 38rem + 8rem);
       background: radial-gradient(
         ellipse 100% 72% at 0% 50%,
         with-alpha($background, 0.9) 0%,
@@ -131,6 +112,11 @@ const t = getDictionary(lang).hero;
     @include below(md) {
       padding-top: calc(var(--strip-height) - 7rem);
     }
+
+    @include up(md) {
+      max-width: 75rem;
+      padding-inline: 1.5rem;
+    }
   }
 
   .hero__inner {
@@ -138,49 +124,21 @@ const t = getDictionary(lang).hero;
   }
 
   .hero__title {
+    max-width: 38rem;
     margin-bottom: 1.5rem;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
-    color: $foreground;
+    color: $primary;
 
     @include up(md) {
-      font-size: 2.5rem;
-    }
-  }
-
-  .hero__title[data-v="2"] {
-    font-size: 1.5rem;
-
-    @include up(md) {
-      font-size: 2rem;
+      font-size: 1.875rem;
     }
   }
 
   .hero__emphasis {
     font-weight: 600;
     color: $primary;
-  }
-
-  .hero__switch {
-    position: absolute;
-    top: 4.5rem;
-    right: 1rem;
-    z-index: 2;
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: $primary;
-    background: with-alpha($card, 0.92);
-    border: 1px solid $border;
-    border-radius: 999px;
-    cursor: pointer;
-  }
-
-  @for $i from 1 through 3 {
-    .hero[data-variant="#{$i}"] [data-v]:not([data-v="#{$i}"]) {
-      display: none;
-    }
   }
 
   .hero__text {
