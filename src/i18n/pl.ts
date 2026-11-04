@@ -24,6 +24,7 @@ export const pl = {
     emphasis: "Ile dróg, tyle historii i potrzeb.",
     closing:
       "Jako psychoterapeutka podążam za klientem wzdłuż tej drogi, z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze, z jednym wspólnym celem – poprawą komfortu życia.",
+    hazeLabel: "Mgiełka pod tekstem",
     cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
   },

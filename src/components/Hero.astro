@@ -30,7 +30,23 @@ const t = getDictionary(lang).hero;
       </div>
     </div>
   </div>
+
+  <label class="hero__haze-control">
+    <span>{t.hazeLabel}: <output data-haze-output>84</output>%</span>
+    <input type="range" min="30" max="100" step="1" value="84" data-haze-input />
+  </label>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".hero").forEach((hero) => {
+    const input = hero.querySelector<HTMLInputElement>("[data-haze-input]");
+    const output = hero.querySelector<HTMLElement>("[data-haze-output]");
+    input?.addEventListener("input", () => {
+      hero.style.setProperty("--haze", String(Number(input.value) / 100));
+      if (output) output.textContent = input.value;
+    });
+  });
+</script>
 
 <style lang="scss">
   @use "sass:color";
@@ -91,8 +107,8 @@ const t = getDictionary(lang).hero;
       width: calc(max(0px, (100% - 75rem) / 2) + 1.5rem + 38rem + 12rem);
       background: radial-gradient(
         ellipse 100% 72% at 0% 50%,
-        with-alpha($background, 0.9) 0%,
-        with-alpha($background, 0.86) 85%,
+        #{"hsl(42 60% 95% / var(--haze, 0.84))"} 0%,
+        #{"hsl(42 60% 95% / calc(var(--haze, 0.84) * 0.86))"} 85%,
         with-alpha($background, 0) 100%
       );
       backdrop-filter: none;
@@ -104,6 +120,34 @@ const t = getDictionary(lang).hero;
         backdrop-filter: blur(6px);
         mask-image: radial-gradient(ellipse 100% 72% at 0% 50%, black 0%, black 85%, transparent 100%);
       }
+    }
+  }
+
+  .hero__haze-control {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 50;
+    display: none;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $primary;
+    background: with-alpha($card, 0.95);
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    box-shadow: $shadow-card;
+
+    @include up(lg) {
+      display: flex;
+    }
+
+    input {
+      width: 12rem;
+      accent-color: $primary;
+      cursor: pointer;
     }
   }
 
