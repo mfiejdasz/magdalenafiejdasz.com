@@ -15,31 +15,25 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
-  photoBand: {
-    shown: "Photo band: shown",
-    hidden: "Photo band: hidden",
+  preview: {
+    bandLabel: "Photo band",
+    bandOptions: ["flowers", "plums", "none"],
+    backgroundLabel: "Plum background",
+    backgroundOptions: ["none", "from “About me”", "from “Education”"],
   },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",
   },
   hero: {
-    titleLine: "I walk beside you",
-    titleHighlight: "as you discover your own path",
-    paragraphs: [
-      "For me, psychotherapy is accompanying someone as they discover their own path, sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes. As many paths, so many stories and needs.",
+    title: "For me, psychotherapy is accompanying someone as they discover their own path",
+    intro:
+      "sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
+    emphasis: "As many paths, so many stories and needs.",
+    closing:
       "As a psychotherapist, I follow the client along this path, with curiosity and attentiveness, in a safe, friendly atmosphere, with one shared goal – improving quality of life.",
-    ],
     cta: "Write to me",
     more: "Learn more",
-    variantLabel: "Heading variant",
-    sentenceTitle: "For me, psychotherapy is accompanying someone as they discover their own path",
-    sentenceText:
-      "sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
-    wordTitle: "Psychotherapy",
-    wordText:
-      "For me, it is accompanying someone as they discover their own path, sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
-    emphasis: "As many paths, so many stories and needs.",
   },
   about: {
     eyebrow: "About me",

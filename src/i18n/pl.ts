@@ -13,31 +13,25 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
-  photoBand: {
-    shown: "Pas ze zdjęciem: widoczny",
-    hidden: "Pas ze zdjęciem: ukryty",
+  preview: {
+    bandLabel: "Pas ze zdjęciem",
+    bandOptions: ["kwiaty", "śliwki", "brak"],
+    backgroundLabel: "Tło ze śliwkami",
+    backgroundOptions: ["brak", "od „O mnie”", "od „Wykształcenia”"],
   },
   languageSwitch: {
     text: "EN",
     label: "English version",
   },
   hero: {
-    titleLine: "Towarzyszę Ci",
-    titleHighlight: "w odkrywaniu własnej drogi",
-    paragraphs: [
-      "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi, czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian. Ile dróg, tyle historii i potrzeb.",
+    title: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi",
+    intro:
+      "czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
+    emphasis: "Ile dróg, tyle historii i potrzeb.",
+    closing:
       "Jako psychoterapeutka podążam za klientem wzdłuż tej drogi, z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze, z jednym wspólnym celem – poprawą komfortu życia.",
-    ],
     cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
-    variantLabel: "Wariant nagłówka",
-    sentenceTitle: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi",
-    sentenceText:
-      "czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
-    wordTitle: "Psychoterapia",
-    wordText:
-      "jest dla mnie towarzyszeniem w odkrywaniu własnej drogi, czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
-    emphasis: "Ile dróg, tyle historii i potrzeb.",
   },
   about: {
     eyebrow: "O mnie",

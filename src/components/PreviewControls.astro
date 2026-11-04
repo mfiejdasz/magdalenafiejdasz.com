@@ -1,0 +1,79 @@
+---
+import { getDictionary, type Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang).preview;
+---
+
+<div class="preview-controls">
+  <button type="button" data-preview-band data-label={t.bandLabel} data-options={JSON.stringify(t.bandOptions)}></button>
+  <button
+    type="button"
+    data-preview-background
+    data-label={t.backgroundLabel}
+    data-options={JSON.stringify(t.backgroundOptions)}
+  ></button>
+</div>
+
+<script>
+  const bandStates = ["flowers", "plums", "off"];
+  const backgroundModes = ["off", "about", "education"];
+
+  const band = document.querySelector<HTMLElement>("[data-photo-band]");
+  const zone = document.querySelector<HTMLElement>("[data-plum-zone]");
+
+  const setup = (selector: string, states: string[], apply: (state: string) => void) => {
+    const button = document.querySelector<HTMLButtonElement>(selector);
+    if (!button) return;
+    const options: string[] = JSON.parse(button.dataset.options ?? "[]");
+    let index = 0;
+    const render = () => {
+      button.textContent = `${button.dataset.label}: ${options[index]}`;
+      apply(states[index]);
+    };
+    button.addEventListener("click", () => {
+      index = (index + 1) % states.length;
+      render();
+    });
+    render();
+  };
+
+  setup("[data-preview-band]", bandStates, (state) => {
+    if (band) band.dataset.state = state;
+  });
+
+  setup("[data-preview-background]", backgroundModes, (state) => {
+    if (zone) zone.dataset.mode = state;
+  });
+</script>
+
+<style lang="scss">
+  @use "../styles" as *;
+
+  .preview-controls {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: $primary;
+      background: with-alpha($card, 0.95);
+      border: 1px solid $border;
+      border-radius: 999px;
+      box-shadow: $shadow-card;
+      cursor: pointer;
+    }
+  }
+</style>
