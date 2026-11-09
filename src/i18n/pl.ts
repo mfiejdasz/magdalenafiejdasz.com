@@ -22,7 +22,7 @@ export const pl = {
     label: "English version",
   },
   hero: {
-    title: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi",
+    title: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi,",
     intro:
       "czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
     emphasis: "Ile dróg, tyle historii i potrzeb.",

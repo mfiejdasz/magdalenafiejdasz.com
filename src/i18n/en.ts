@@ -24,7 +24,7 @@ export const en: Dictionary = {
     label: "Wersja polska",
   },
   hero: {
-    title: "For me, psychotherapy is accompanying someone as they discover their own path",
+    title: "For me, psychotherapy is accompanying someone as they discover their own path,",
     intro:
       "sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
     emphasis: "As many paths, so many stories and needs.",
