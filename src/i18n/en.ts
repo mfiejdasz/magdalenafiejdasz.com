@@ -19,6 +19,11 @@ export const en: Dictionary = {
     label: "Fonts",
     options: ["current", "uniform"],
   },
+  navOpacity: {
+    label: "Navigation background",
+    toneLabel: "Text color",
+    toneOptions: ["dark", "light"],
+  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",
