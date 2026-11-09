@@ -26,7 +26,6 @@ export const en: Dictionary = {
     emphasis: "As many paths, so many stories and needs.",
     closing:
       "As a psychotherapist, I follow the client along this path, with curiosity and attentiveness, in a safe, friendly atmosphere, with one shared goal – improving quality of life.",
-    hazeLabel: "Text haze",
     cta: "Write to me",
     more: "Learn more",
   },
