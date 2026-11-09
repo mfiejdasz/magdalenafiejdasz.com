@@ -17,6 +17,11 @@ export const pl = {
     label: "Czcionki",
     options: ["obecne", "jednolite"],
   },
+  navOpacity: {
+    label: "Tło nawigacji",
+    toneLabel: "Kolor napisów",
+    toneOptions: ["ciemny", "jasny"],
+  },
   languageSwitch: {
     text: "EN",
     label: "English version",
