@@ -94,7 +94,11 @@ export const pl = {
       },
       {
         title: "Relacje",
-        points: ["doświadczają trudności w relacjach", "doświadczają trudności w relacji ze sobą"],
+        points: [
+          "doświadczają trudności w relacjach",
+          "doświadczają trudności w relacjach z innymi ludźmi",
+          "doświadczają trudności w relacji ze sobą",
+        ],
       },
       {
         title: "Zmiany i nowe etapy",

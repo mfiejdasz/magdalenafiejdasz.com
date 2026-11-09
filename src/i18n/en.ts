@@ -96,7 +96,11 @@ export const en: Dictionary = {
       },
       {
         title: "Relationships",
-        points: ["experience difficulties in relationships", "experience difficulties in their relationship with themselves"],
+        points: [
+          "experience difficulties in relationships",
+          "experience difficulties in relationships with other people",
+          "experience difficulties in their relationship with themselves",
+        ],
       },
       {
         title: "Change and new stages",
