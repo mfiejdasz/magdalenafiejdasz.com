@@ -15,18 +15,21 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
+  fontSwitch: {
+    label: "Fonts",
+    options: ["current", "uniform"],
+  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",
   },
   hero: {
-    title: "For me, psychotherapy is accompanying someone as they discover their own path",
+    title: "For me, psychotherapy is accompanying someone as they discover their own path,",
     intro:
       "sometimes wild and winding. It is a search for one's own truth, an understanding of oneself, acceptance. For some, the fruit of this path may be relief and a sense of liberation; for others, a desire to make changes.",
     emphasis: "As many paths, so many stories and needs.",
     closing:
       "As a psychotherapist, I follow the client along this path, with curiosity and attentiveness, in a safe, friendly atmosphere, with one shared goal – improving quality of life.",
-    hazeLabel: "Text haze",
     cta: "Write to me",
     more: "Learn more",
   },
@@ -93,7 +96,11 @@ export const en: Dictionary = {
       },
       {
         title: "Relationships",
-        points: ["experience difficulties in relationships", "experience difficulties in their relationship with themselves"],
+        points: [
+          "experience difficulties in relationships",
+          "experience difficulties in relationships with other people",
+          "experience difficulties in their relationship with themselves",
+        ],
       },
       {
         title: "Change and new stages",
@@ -118,7 +125,7 @@ export const en: Dictionary = {
     title: "Selected publications about my work",
     pressTitle: "Press and online media",
     journalTitle: "Trade journal",
-    journalLink: "All publications at PTHIP",
+    journalLink: "All publications at Polish Equine Facilitated Therapy Association (PTHiP)",
     openLabel: "Opens in a new tab",
   },
   news: {

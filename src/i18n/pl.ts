@@ -13,18 +13,21 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
+  fontSwitch: {
+    label: "Czcionki",
+    options: ["obecne", "jednolite"],
+  },
   languageSwitch: {
     text: "EN",
     label: "English version",
   },
   hero: {
-    title: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi",
+    title: "Psychoterapia jest dla mnie towarzyszeniem w odkrywaniu własnej drogi,",
     intro:
       "czasem dzikiej i krętej. Jest poszukiwaniem swojej prawdy, zrozumieniem siebie, akceptacją. Dla jednych owocem tej drogi może być ulga i poczucie uwolnienia, dla innych chęć wprowadzenia zmian.",
     emphasis: "Ile dróg, tyle historii i potrzeb.",
     closing:
       "Jako psychoterapeutka podążam za klientem wzdłuż tej drogi, z zaciekawieniem i uważnością, w bezpiecznej, przyjaznej atmosferze, z jednym wspólnym celem – poprawą komfortu życia.",
-    hazeLabel: "Mgiełka pod tekstem",
     cta: "Napisz do mnie",
     more: "Dowiedz się więcej",
   },
@@ -91,7 +94,11 @@ export const pl = {
       },
       {
         title: "Relacje",
-        points: ["doświadczają trudności w relacjach", "doświadczają trudności w relacji ze sobą"],
+        points: [
+          "doświadczają trudności w relacjach",
+          "doświadczają trudności w relacjach z innymi ludźmi",
+          "doświadczają trudności w relacji ze sobą",
+        ],
       },
       {
         title: "Zmiany i nowe etapy",

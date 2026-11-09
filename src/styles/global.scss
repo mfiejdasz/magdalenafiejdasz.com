@@ -8,6 +8,14 @@
   padding: 0;
 }
 
+:root {
+  --font-heading: #{$font-heading-serif};
+}
+
+html[data-fonts="uniform"] {
+  --font-heading: #{$font-body};
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: $navbar-height;
