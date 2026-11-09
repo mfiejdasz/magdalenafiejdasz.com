@@ -15,6 +15,10 @@ export const en: Dictionary = {
     news: "News",
     contact: "Contact",
   },
+  fontSwitch: {
+    label: "Fonts",
+    options: ["current", "uniform"],
+  },
   languageSwitch: {
     text: "PL",
     label: "Wersja polska",

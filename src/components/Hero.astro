@@ -139,6 +139,15 @@ const t = getDictionary(lang).hero;
     @include up(md) {
       font-size: 1.875rem;
     }
+
+    :global(html[data-fonts="uniform"]) & {
+      font-size: 1.3125rem;
+      letter-spacing: -0.01em;
+
+      @include up(md) {
+        font-size: 1.625rem;
+      }
+    }
   }
 
   .hero__emphasis {

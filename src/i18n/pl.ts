@@ -13,6 +13,10 @@ export const pl = {
     news: "Aktualności",
     contact: "Kontakt",
   },
+  fontSwitch: {
+    label: "Czcionki",
+    options: ["obecne", "jednolite"],
+  },
   languageSwitch: {
     text: "EN",
     label: "English version",
