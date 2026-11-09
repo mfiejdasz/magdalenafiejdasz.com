@@ -121,7 +121,7 @@ export const en: Dictionary = {
     title: "Selected publications about my work",
     pressTitle: "Press and online media",
     journalTitle: "Trade journal",
-    journalLink: "All publications at PTHIP",
+    journalLink: "All publications at Polish Equine Facilitated Therapy Association (PTHiP)",
     openLabel: "Opens in a new tab",
   },
   news: {
