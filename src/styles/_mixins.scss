@@ -46,17 +46,7 @@
 
   @include up(md) {
     font-size: 2.25rem;
-  }
-
-  :global(html[data-fonts="uniform"]) & {
-    font-size: 1.625rem;
-    letter-spacing: -0.01em;
-
-    @include up(md) {
-      font-size: 2rem;
-    }
-  }
-}
+  }}
 
 @mixin icon-box($size, $radius) {
   display: flex;

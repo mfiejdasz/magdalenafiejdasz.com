@@ -2,7 +2,7 @@ import type { Dictionary } from "./pl";
 
 export const en: Dictionary = {
   meta: {
-    title: "Psychotherapy – Find Calm and Understanding",
+    title: "Psychotherapy – a place for your story",
     description:
       "Online psychotherapy for adults. A safe, friendly atmosphere and support in discovering your own path.",
   },
@@ -14,15 +14,6 @@ export const en: Dictionary = {
     articles: "Articles",
     news: "News",
     contact: "Contact",
-  },
-  fontSwitch: {
-    label: "Fonts",
-    options: ["current", "uniform"],
-  },
-  navOpacity: {
-    label: "Navigation background",
-    toneLabel: "Text color",
-    toneOptions: ["dark", "light"],
   },
   languageSwitch: {
     text: "PL",
@@ -102,7 +93,6 @@ export const en: Dictionary = {
       {
         title: "Relationships",
         points: [
-          "experience difficulties in relationships",
           "experience difficulties in relationships with other people",
           "experience difficulties in their relationship with themselves",
         ],
