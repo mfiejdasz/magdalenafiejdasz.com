@@ -72,27 +72,13 @@ const links: NavLink[] = [
     left: 0;
     right: 0;
     z-index: 50;
-    background: #{"hsl(42 60% 95% / var(--nav-alpha, 0.8))"};
-    backdrop-filter: blur(calc(var(--nav-alpha, 0.8) * 20px));
+    background: with-alpha($background, 0.63);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid with-alpha($border, 0.5);
     transition: background 0.3s;
 
     &[data-open="true"] {
       background: with-alpha($background, 0.97);
-    }
-
-    :global(html[data-nav-tone="light"]) &[data-open="false"] {
-      .navbar__brand-name,
-      .navbar__link,
-      .navbar__lang,
-      :global(.menu-toggle) {
-        color: #fff;
-        text-shadow: 0 1px 6px hsla(0, 0%, 0%, 0.35);
-      }
-
-      .navbar__lang {
-        border-color: hsla(0, 0%, 100%, 0.6);
-      }
     }
   }
 

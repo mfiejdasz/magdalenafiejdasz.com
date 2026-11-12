@@ -1,6 +1,6 @@
 export const pl = {
   meta: {
-    title: "Psychoterapia – Znajdź spokój i zrozumienie",
+    title: "Psychoterapia – miejsce na Twoją historię",
     description:
       "Psychoterapia online dla osób dorosłych. Bezpieczna, przyjazna atmosfera i towarzyszenie w odkrywaniu własnej drogi.",
   },
@@ -12,15 +12,6 @@ export const pl = {
     articles: "Artykuły",
     news: "Aktualności",
     contact: "Kontakt",
-  },
-  fontSwitch: {
-    label: "Czcionki",
-    options: ["obecne", "jednolite"],
-  },
-  navOpacity: {
-    label: "Tło nawigacji",
-    toneLabel: "Kolor napisów",
-    toneOptions: ["ciemny", "jasny"],
   },
   languageSwitch: {
     text: "EN",
@@ -100,7 +91,6 @@ export const pl = {
       {
         title: "Relacje",
         points: [
-          "doświadczają trudności w relacjach",
           "doświadczają trudności w relacjach z innymi ludźmi",
           "doświadczają trudności w relacji ze sobą",
         ],
