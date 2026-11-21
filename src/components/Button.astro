@@ -40,6 +40,12 @@ const classes = ["button", `button--${variant}`, `button--${size}`];
       outline: 2px solid $primary;
       outline-offset: 2px;
     }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
   }
 
   .button--hero {

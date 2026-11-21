@@ -150,6 +150,9 @@ export const en: Dictionary = {
       consentBefore: "I consent to the processing of my personal data in order to receive a reply to my message, in accordance with the",
       consentLink: "Privacy Policy",
       submit: "Send message",
+      sending: "Sending…",
+      success: "Thank you for your message. I will reply as soon as possible.",
+      error: "The message could not be sent. Please try again in a moment.",
     },
   },
   footer: {

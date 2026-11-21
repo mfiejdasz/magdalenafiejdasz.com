@@ -148,6 +148,9 @@ export const pl = {
       consentBefore: "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na wiadomość, zgodnie z",
       consentLink: "Polityką prywatności",
       submit: "Wyślij wiadomość",
+      sending: "Wysyłanie…",
+      success: "Dziękuję za wiadomość. Odpowiem najszybciej, jak to możliwe.",
+      error: "Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę.",
     },
   },
   footer: {

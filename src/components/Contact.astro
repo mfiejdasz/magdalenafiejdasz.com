@@ -21,7 +21,20 @@ const t = getDictionary(lang).contact;
   <div class="contact__container">
     <SectionHeader title={t.title} />
 
-    <form class="contact__form">
+    <form
+      class="contact__form"
+      name="contact"
+      method="POST"
+      action="/"
+      data-netlify="true"
+      netlify-honeypot="website"
+      data-sending={t.form.sending}
+      data-success={t.form.success}
+      data-error={t.form.error}
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="lang" value={lang} />
+
       <div class="contact__field">
         <label for="contact-name">{t.form.name}</label>
         <input id="contact-name" name="name" type="text" autocomplete="name" required />
@@ -63,9 +76,54 @@ const t = getDictionary(lang).contact;
       <div class="contact__actions">
         <Button type="submit" size="lg">{t.form.submit}</Button>
       </div>
+
+      <p class="contact__status" role="status" aria-live="polite" hidden></p>
     </form>
   </div>
 </section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("form.contact__form");
+
+  if (form) {
+    const status = form.querySelector<HTMLElement>(".contact__status");
+    const submit = form.querySelector<HTMLButtonElement>("button[type='submit']");
+
+    const showStatus = (message: string, isError: boolean) => {
+      if (!status) return;
+      status.textContent = message;
+      status.hidden = false;
+      status.dataset.state = isError ? "error" : "success";
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submit?.disabled) return;
+
+      if (submit) submit.disabled = true;
+      showStatus(form.dataset.sending ?? "", false);
+
+      try {
+        const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+        const response = await fetch(form.getAttribute("action") ?? "/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        });
+
+        if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
+
+        form.reset();
+        showStatus(form.dataset.success ?? "", false);
+      } catch (error) {
+        console.error(error);
+        showStatus(form.dataset.error ?? "", true);
+      } finally {
+        if (submit) submit.disabled = false;
+      }
+    });
+  }
+</script>
 
 <style lang="scss">
   @use "../styles" as *;
@@ -209,5 +267,22 @@ const t = getDictionary(lang).contact;
   .contact__actions {
     display: flex;
     justify-content: center;
+  }
+
+  .contact__status {
+    text-align: center;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: $muted-foreground;
+
+    &[data-state="success"] {
+      color: $primary;
+      font-weight: 500;
+    }
+
+    &[data-state="error"] {
+      color: hsl(0 65% 40%);
+      font-weight: 500;
+    }
   }
 </style>
