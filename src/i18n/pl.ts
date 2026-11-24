@@ -172,7 +172,7 @@ export const pl = {
       {
         heading: "1. Administrator danych",
         paragraphs: [
-          "Administratorem Twoich danych osobowych jest Magdalena Fiejdasz, prowadząca działalność gospodarczą pod firmą Magdalena Fiejdasz Psychoterapia, ul. Bora-Komorowskiego 16 m. 45, 03-982 Warszawa, NIP: 113-199-93-64.",
+          "Administratorem Twoich danych osobowych jest Magdalena Fiejdasz, prowadząca działalność gospodarczą pod firmą Magdalena Fiejdasz Psychoterapia, NIP: 113-199-93-64.",
           "W sprawach dotyczących danych osobowych możesz skontaktować się ze mną pod adresem e-mail: magdalena.fiejdasz@gmail.com.",
         ],
       },

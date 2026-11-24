@@ -167,7 +167,7 @@ export const en: Dictionary = {
       {
         heading: "1. Data controller",
         paragraphs: [
-          "The controller of your personal data is Magdalena Fiejdasz, running a business under the name Magdalena Fiejdasz Psychoterapia, ul. Bora-Komorowskiego 16 m. 45, 03-982 Warsaw, Poland, tax ID (NIP): 113-199-93-64.",
+          "The controller of your personal data is Magdalena Fiejdasz, running a business under the name Magdalena Fiejdasz Psychoterapia, tax ID (NIP): 113-199-93-64.",
           "For any matters concerning personal data you can contact me by e-mail: magdalena.fiejdasz@gmail.com.",
         ],
       },
