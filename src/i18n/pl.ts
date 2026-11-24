@@ -1,3 +1,10 @@
+export interface PrivacySection {
+  heading: string;
+  paragraphs?: string[];
+  items?: string[];
+  after?: string[];
+}
+
 export const pl = {
   meta: {
     title: "Psychoterapia – miejsce na Twoją historię",
@@ -161,7 +168,79 @@ export const pl = {
   privacy: {
     title: "Polityka prywatności",
     metaTitle: "Polityka prywatności – Magdalena Fiejdasz",
-    placeholder: "Treść zostanie uzupełniona.",
+    sections: [
+      {
+        heading: "1. Administrator danych",
+        paragraphs: [
+          "Administratorem Twoich danych osobowych jest Magdalena Fiejdasz, prowadząca działalność gospodarczą pod firmą Magdalena Fiejdasz Psychoterapia, ul. Bora-Komorowskiego 16 m. 45, 03-982 Warszawa, NIP: 113-199-93-64.",
+          "W sprawach dotyczących danych osobowych możesz skontaktować się ze mną pod adresem e-mail: magdalena.fiejdasz@gmail.com.",
+        ],
+      },
+      {
+        heading: "2. Jakie dane przetwarzam",
+        paragraphs: [
+          "Przetwarzam dane, które podajesz w formularzu kontaktowym na stronie:",
+        ],
+        items: [
+          "imię i nazwisko,",
+          "adres e-mail,",
+          "numer telefonu (jeśli go podasz),",
+          "treść wiadomości,",
+          "wersję językową strony, z której wysłano wiadomość.",
+        ],
+      },
+      {
+        heading: "3. Cel i podstawa prawna",
+        paragraphs: [
+          "Dane przetwarzam w celu odpowiedzi na Twoją wiadomość i prowadzenia korespondencji. Podstawą prawną jest Twoja zgoda (art. 6 ust. 1 lit. a RODO), wyrażona przez zaznaczenie pola w formularzu.",
+          "Jeżeli w treści wiadomości podasz informacje o swoim zdrowiu, przetwarzam je na podstawie Twojej zgody (art. 9 ust. 2 lit. a RODO). Nie musisz ich podawać. Szczegóły dotyczące swojej sytuacji możemy omówić podczas rozmowy.",        ],
+      },
+      {
+        heading: "4. Dobrowolność podania danych",
+        paragraphs: [
+          "Podanie danych jest dobrowolne, ale imię i nazwisko, adres e-mail oraz treść wiadomości są niezbędne, abym mogła odpowiedzieć. Numer telefonu jest opcjonalny.",
+        ],
+      },
+      {
+        heading: "5. Okres przechowywania",
+        paragraphs: [
+          "Wiadomości z formularza przechowuję przez 12 miesięcy od zakończenia korespondencji, a następnie je usuwam. Jeśli wcześniej cofniesz zgodę, usunę je niezwłocznie.",
+        ],
+      },
+      {
+        heading: "6. Odbiorcy danych",
+        paragraphs: ["Dane z formularza trafiają do dostawców usług technicznych, z których korzystam:"],
+        items: [
+          "Netlify, Inc. – hosting strony i obsługa formularza kontaktowego (w tym filtr antyspamowy Akismet),",
+          "Google Ireland Limited – obsługa poczty e-mail (Gmail).",
+        ],
+        after: [
+          "Wiadomości z formularza są przechowywane na serwerach Netlify w Stanach Zjednoczonych, czyli poza Europejskim Obszarem Gospodarczym. Przekazanie odbywa się na podstawie decyzji Komisji Europejskiej o odpowiednim stopniu ochrony (EU-U.S. Data Privacy Framework) albo standardowych klauzul umownych.",
+        ],
+      },
+      {
+        heading: "7. Twoje prawa",
+        paragraphs: ["Przysługuje Ci prawo do:"],
+        items: [
+          "dostępu do swoich danych i otrzymania ich kopii,",
+          "sprostowania danych,",
+          "usunięcia danych,",
+          "ograniczenia przetwarzania,",
+          "przenoszenia danych,",
+          "cofnięcia zgody w dowolnym momencie, bez wpływu na zgodność z prawem przetwarzania dokonanego przed jej cofnięciem.",
+        ],
+        after: [
+          "Aby skorzystać z tych praw, napisz na adres magdalena.fiejdasz@gmail.com.",
+          "Masz również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).",
+        ],
+      },
+      {
+        heading: "8. Pliki cookies i dzienniki serwera",
+        paragraphs: [
+          "Strona nie używa plików cookies ani narzędzi analitycznych i marketingowych. Dostawca hostingu może automatycznie zapisywać podstawowe dane techniczne połączenia (np. adres IP) w dziennikach serwera, w celu zapewnienia bezpieczeństwa i prawidłowego działania strony.",
+        ],
+      },
+    ] as PrivacySection[],
     back: "Wróć na stronę główną",
   },
   notFound: {
