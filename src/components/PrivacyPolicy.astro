@@ -15,7 +15,22 @@ const t = getDictionary(lang).privacy;
 <main class="privacy">
   <div class="privacy__container">
     <h1 class="privacy__title">{t.title}</h1>
-    <p class="privacy__placeholder">{t.placeholder}</p>
+    {
+      t.sections.map((section) => (
+        <section class="privacy__section">
+          <h2 class="privacy__heading">{section.heading}</h2>
+          {section.paragraphs?.map((text) => <p class="privacy__text">{text}</p>)}
+          {section.items && (
+            <ul class="privacy__list">
+              {section.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+          {section.after?.map((text) => <p class="privacy__text">{text}</p>)}
+        </section>
+      ))
+    }
     <a href={getHomePath(lang)} class="privacy__back">{t.back}</a>
   </div>
 </main>
@@ -44,9 +59,29 @@ const t = getDictionary(lang).privacy;
     }
   }
 
-  .privacy__placeholder {
+  .privacy__section {
     margin-bottom: 2rem;
+  }
+
+  .privacy__heading {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .privacy__text {
+    margin-bottom: 0.75rem;
     color: $muted-foreground;
+    line-height: 1.7;
+  }
+
+  .privacy__list {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+    color: $muted-foreground;
+    line-height: 1.7;
   }
 
   .privacy__back {

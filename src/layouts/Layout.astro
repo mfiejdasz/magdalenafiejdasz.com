@@ -11,6 +11,7 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "../styles/global.scss";
 import { getDictionary, getHomePath, languages, type Lang } from "../i18n";
+import { isIndexable } from "../utils/indexing";
 
 interface Props {
   lang: Lang;
@@ -19,7 +20,8 @@ interface Props {
   paths?: Record<Lang, string>;
 }
 
-const { lang, noindex = false, title, paths } = Astro.props;
+const { lang, noindex: noindexProp = false, title, paths } = Astro.props;
+const noindex = noindexProp || !isIndexable(Astro.site);
 const t = getDictionary(lang);
 const locales: Record<Lang, string> = { pl: "pl_PL", en: "en_US" };
 const toUrl = (path: string) => new URL(path, Astro.site);

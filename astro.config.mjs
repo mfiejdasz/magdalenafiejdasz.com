@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: process.env.URL ?? "https://example.com",
   i18n: {
     defaultLocale: "pl",
     locales: ["pl", "en"],

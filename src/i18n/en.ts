@@ -1,4 +1,4 @@
-import type { Dictionary } from "./pl";
+import type { Dictionary, PrivacySection } from "./pl";
 
 export const en: Dictionary = {
   meta: {
@@ -163,7 +163,77 @@ export const en: Dictionary = {
   privacy: {
     title: "Privacy Policy",
     metaTitle: "Privacy Policy – Magdalena Fiejdasz",
-    placeholder: "The content will be added soon.",
+    sections: [
+      {
+        heading: "1. Data controller",
+        paragraphs: [
+          "The controller of your personal data is Magdalena Fiejdasz, running a business under the name Magdalena Fiejdasz Psychoterapia, ul. Bora-Komorowskiego 16 m. 45, 03-982 Warsaw, Poland, tax ID (NIP): 113-199-93-64.",
+          "For any matters concerning personal data you can contact me by e-mail: magdalena.fiejdasz@gmail.com.",
+        ],
+      },
+      {
+        heading: "2. What data I process",
+        paragraphs: ["I process the data you provide in the contact form on this website:"],
+        items: [
+          "first and last name,",
+          "e-mail address,",
+          "phone number (if you provide it),",
+          "the content of your message,",
+          "the language version of the website from which the message was sent.",
+        ],
+      },
+      {
+        heading: "3. Purpose and legal basis",
+        paragraphs: [
+          "I process the data to reply to your message and to carry on correspondence. The legal basis is your consent (Art. 6(1)(a) GDPR), given by ticking the checkbox in the form.",
+          "If you include information about your health in your message, I process it on the basis of your consent (Art. 9(2)(a) GDPR). You are not required to provide it. We can discuss the details of your situation during a conversation.",        ],
+      },
+      {
+        heading: "4. Providing data is voluntary",
+        paragraphs: [
+          "Providing data is voluntary, but your name, e-mail address and the content of the message are necessary for me to reply. The phone number is optional.",
+        ],
+      },
+      {
+        heading: "5. Retention period",
+        paragraphs: [
+          "I keep messages from the form for 12 months after the correspondence ends, and then delete them. If you withdraw your consent earlier, I will delete them without delay.",
+        ],
+      },
+      {
+        heading: "6. Recipients of data",
+        paragraphs: ["Data from the form is passed to the providers of the technical services I use:"],
+        items: [
+          "Netlify, Inc. – website hosting and handling of the contact form (including the Akismet spam filter),",
+          "Google Ireland Limited – e-mail service (Gmail).",
+        ],
+        after: [
+          "Messages from the form are stored on Netlify servers in the United States, i.e. outside the European Economic Area. The transfer is based on a European Commission adequacy decision (EU-U.S. Data Privacy Framework) or standard contractual clauses.",
+        ],
+      },
+      {
+        heading: "7. Your rights",
+        paragraphs: ["You have the right to:"],
+        items: [
+          "access your data and receive a copy of it,",
+          "rectify your data,",
+          "erase your data,",
+          "restrict processing,",
+          "data portability,",
+          "withdraw your consent at any time, without affecting the lawfulness of processing carried out before its withdrawal.",
+        ],
+        after: [
+          "To exercise these rights, write to magdalena.fiejdasz@gmail.com.",
+          "You also have the right to lodge a complaint with the President of the Personal Data Protection Office (Urząd Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warsaw, Poland).",
+        ],
+      },
+      {
+        heading: "8. Cookies and server logs",
+        paragraphs: [
+          "This website does not use cookies or analytics and marketing tools. The hosting provider may automatically record basic technical connection data (e.g. the IP address) in server logs to ensure the security and proper operation of the website.",
+        ],
+      },
+    ] as PrivacySection[],
     back: "Back to the home page",
   },
   notFound: {
